@@ -474,31 +474,330 @@
             border-color: #38b2ac;
         }
 
-        .dark-mode-toggle {
-            display: flex;
-            align-items: center;
+        .theme-selector {
             padding: 12px;
             margin: 8px 0;
             background: #f8fafc;
             border-radius: 6px;
-            cursor: pointer;
             transition: background-color 0.2s ease;
-            border: none;
-            width: 100%;
-            font-size: 14px;
         }
 
-        body.dark .dark-mode-toggle {
+        body.dark .theme-selector {
             background: #1a202c;
             color: #e2e8f0;
         }
 
-        .dark-mode-toggle:hover {
+        .theme-dropdown {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            background: white;
+            color: #2d3748;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        body.dark .theme-dropdown {
+            background: #2d3748;
+            border-color: #4a5568;
+            color: #e2e8f0;
+        }
+
+        .theme-dropdown:hover {
+            border-color: #38b2ac;
+        }
+
+        .theme-dropdown:focus {
+            outline: none;
+            border-color: #38b2ac;
+            box-shadow: 0 0 0 3px rgba(56, 178, 172, 0.1);
+        }
+
+        .data-btn {
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .data-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        body.dark .data-btn:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .history-entry {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            margin: 4px 0;
+            background: #f8fafc;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        body.dark .history-entry {
+            background: #2d3748;
+        }
+
+        .symptom-entry {
+            padding: 12px;
+            margin: 8px 0;
+            background: #f8fafc;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        body.dark .symptom-entry {
+            background: #2d3748;
+        }
+
+        .data-management-section {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 24px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        body.dark .data-management-section {
+            background: #2d3748;
+            border-color: #4a5568;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .data-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .data-header h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .data-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .data-icon-btn {
+            width: 36px;
+            height: 36px;
+            border: 1px solid #d1d5db;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            position: relative;
+        }
+
+        body.dark .data-icon-btn {
+            background: #4a5568;
+            border-color: #718096;
+            color: #e2e8f0;
+        }
+
+        .data-icon-btn:hover {
+            background: #f7fafc;
+            border-color: #38b2ac;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark .data-icon-btn:hover {
+            background: #2d3748;
+            border-color: #38b2ac;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .data-icon-btn.danger:hover {
+            background: #fed7d7;
+            border-color: #e53e3e;
+        }
+
+        body.dark .data-icon-btn.danger:hover {
+            background: #742a2a;
+            border-color: #fc8181;
+        }
+
+        .data-message {
+            padding: 12px;
+            border-radius: 6px;
+            margin: 12px 0;
+            font-size: 14px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .status-item {
+            text-align: center;
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        body.dark .status-item {
+            background: #1a202c;
+        }
+
+        .status-item strong {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .status-item span {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .data-tips {
+            margin-top: 16px;
+        }
+
+        .data-tips details {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        body.dark .data-tips details {
+            background: #1a202c;
+            border-color: #4a5568;
+        }
+
+        .data-tips summary {
+            padding: 12px 16px;
+            cursor: pointer;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+        }
+
+        .data-tips summary:hover {
             background: #e2e8f0;
         }
 
-        body.dark .dark-mode-toggle:hover {
-            background: #4a5568;
+        body.dark .data-tips summary:hover {
+            background: #2d3748;
+        }
+
+        .data-tips ul {
+            padding: 0 16px 16px;
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .data-tips li {
+            margin: 8px 0;
+        }
+
+        .tracker-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            gap: 16px;
+        }
+
+        .tracker-header h3 {
+            margin: 0 0 4px 0;
+        }
+
+        .tracker-header p {
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        .tracker-actions {
+            display: flex;
+            gap: 4px;
+            flex-shrink: 0;
+        }
+
+        .tracker-actions .data-icon-btn {
+            width: 32px;
+            height: 32px;
+            font-size: 14px;
+        }
+
+        .bookmark-remove-btn {
+            background: none;
+            border: none;
+            opacity: 0.7;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+        }
+
+        .bookmark-remove-btn:hover {
+            opacity: 1;
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+        }
+
+        body.dark .bookmark-remove-btn:hover {
+            background: rgba(248, 113, 113, 0.2);
+            color: #f87171;
+        }
+
+        .calc-total-section {
+            text-align: center;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #e2e8f0;
+            transition: border-color 0.3s ease;
+        }
+
+        body.dark .calc-total-section {
+            border-top-color: #4a5568;
+        }
+
+        @media (max-width: 768px) {
+            .tracker-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .tracker-actions {
+                justify-content: flex-end;
+                margin-top: 8px;
+            }
+            
+            .data-actions {
+                justify-content: center;
+            }
         }
 
         h1 { font-size: 32px; font-weight: 700; margin: 32px 0 16px 0; }
@@ -550,10 +849,14 @@
         <h3>Your Bookmarks</h3>
         <div id="bookmarksList"></div>
         
-        <button class="dark-mode-toggle" onclick="toggleDarkMode()">
-            <span id="darkModeIcon">🌙</span>
-            <span style="margin-left: 8px;" id="darkModeText">Dark Mode</span>
-        </button>
+        <div class="theme-selector">
+            <label for="themeSelect" style="font-size: 14px; color: inherit; margin-bottom: 4px; display: block;">🎨 Theme:</label>
+            <select id="themeSelect" onchange="changeTheme(this.value)" class="theme-dropdown">
+                <option value="system">🔄 System Default</option>
+                <option value="light">☀️ Light Mode</option>
+                <option value="dark">🌙 Dark Mode</option>
+            </select>
+        </div>
         
         <h3 style="margin-top: 32px;">Quick Navigation</h3>
         <div class="bookmark-item" onclick="scrollToModule('overview')">📋 Overview & Assessment</div>
@@ -1108,8 +1411,23 @@
                 </div>
                 
                 <div class="calculator">
-                    <h3>Ketogenic Macro Calculator</h3>
-                    <p>Enter your information to estimate daily macronutrient targets:</p>
+                    <div class="tracker-header">
+                        <div>
+                            <h3>Ketogenic Macro Calculator</h3>
+                            <p>Enter your information to estimate daily macronutrient targets:</p>
+                        </div>
+                        <div class="tracker-actions">
+                            <button onclick="saveCalculatorProfile()" class="data-icon-btn" title="Save calculator settings">
+                                💾
+                            </button>
+                            <button onclick="loadCalculatorProfile()" class="data-icon-btn" title="Load saved settings">
+                                📥
+                            </button>
+                            <button onclick="clearCalculatorProfile()" class="data-icon-btn danger" title="Clear calculator">
+                                🗑️
+                            </button>
+                        </div>
+                    </div>
                     
                     <div style="margin-bottom: 16px;">
                         <label>Unit System:</label>
@@ -1174,8 +1492,20 @@
                 </div>
                 
                 <div class="calculator">
-                    <h3>Ketone Level Tracker</h3>
-                    <p>Track your ketone measurements over time:</p>
+                    <div class="tracker-header">
+                        <div>
+                            <h3>Ketone Level Tracker</h3>
+                            <p>Track your ketone measurements over time:</p>
+                        </div>
+                        <div class="tracker-actions">
+                            <button onclick="exportKetoneData()" class="data-icon-btn" title="Export ketone data">
+                                📤
+                            </button>
+                            <button onclick="clearKetoneData()" class="data-icon-btn danger" title="Clear ketone readings">
+                                🗑️
+                            </button>
+                        </div>
+                    </div>
                     
                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 16px 0;">
                         <div>
@@ -1207,8 +1537,20 @@
                 </div>
                 
                 <div class="calculator">
-                    <h3>Symptom Tracker</h3>
-                    <p>Monitor your adaptation progress:</p>
+                    <div class="tracker-header">
+                        <div>
+                            <h3>Symptom Tracker</h3>
+                            <p>Monitor your adaptation progress:</p>
+                        </div>
+                        <div class="tracker-actions">
+                            <button onclick="exportSymptomData()" class="data-icon-btn" title="Export symptom data">
+                                📤
+                            </button>
+                            <button onclick="clearSymptomData()" class="data-icon-btn danger" title="Clear symptom entries">
+                                🗑️
+                            </button>
+                        </div>
+                    </div>
                     
                     <div style="margin: 16px 0;">
                         <label>Date:</label>
@@ -1248,6 +1590,61 @@
                     <button onclick="addSymptomEntry()" style="background: #38b2ac; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer;">Add Entry</button>
                     
                     <div id="symptomHistory"></div>
+                </div>
+                
+                <div class="data-management-section">
+                    <div class="data-header">
+                        <h3>📊 Your Tracking Data</h3>
+                        <div class="data-actions">
+                            <button onclick="saveTrackingData()" class="data-icon-btn" title="Save data to storage">
+                                💾
+                            </button>
+                            <button onclick="loadTrackingData()" class="data-icon-btn" title="Load saved data">
+                                📥
+                            </button>
+                            <button onclick="exportTrackingData()" class="data-icon-btn" title="Export as JSON file">
+                                📤
+                            </button>
+                            <label class="data-icon-btn" title="Import JSON file">
+                                📂
+                                <input type="file" accept=".json" onchange="importTrackingData(event)" style="display: none;">
+                            </label>
+                            <button onclick="clearAllTrackingData()" class="data-icon-btn danger" title="Clear all data">
+                                🗑️
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="dataMessage" class="data-message"></div>
+                    
+                    <div id="dataStatus" class="data-status">
+                        <div class="status-grid">
+                            <div class="status-item">
+                                <strong>0</strong>
+                                <span>Ketone Readings</span>
+                            </div>
+                            <div class="status-item">
+                                <strong>0</strong>
+                                <span>Symptom Entries</span>
+                            </div>
+                            <div class="status-item">
+                                <strong>0</strong>
+                                <span>Calculator Saves</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-tips">
+                        <details>
+                            <summary>💡 Data Management Info</summary>
+                            <ul>
+                                <li><strong>Auto-save:</strong> Data saves automatically to your browser</li>
+                                <li><strong>Export:</strong> Download backup files for safekeeping</li>
+                                <li><strong>Import:</strong> Restore data from backup files</li>
+                                <li><strong>Privacy:</strong> All data stays on your device</li>
+                            </ul>
+                        </details>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1453,7 +1850,8 @@
             currentDepth: {},
             userProfile: {},
             ketoneReadings: [],
-            symptomEntries: []
+            symptomEntries: [],
+            calculatorProfiles: []
         };
 
         // Initialize app
@@ -1462,38 +1860,75 @@
             updateProgress();
             initializeDepths();
             initializeDarkMode();
+            setupSystemThemeListener();
+            migrateLegacyTheme();
         });
 
         // Dark mode functions
         function initializeDarkMode() {
-            const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-            if (savedDarkMode) {
-                document.body.classList.add('dark');
-                updateDarkModeToggle(true);
+            const savedTheme = localStorage.getItem('themeMode') || 'system';
+            applyTheme(savedTheme);
+        }
+
+        function changeTheme(theme) {
+            localStorage.setItem('themeMode', theme);
+            applyTheme(theme);
+        }
+
+        function applyTheme(theme) {
+            const themeSelect = document.getElementById('themeSelect');
+            
+            switch (theme) {
+                case 'light':
+                    document.body.classList.remove('dark');
+                    break;
+                case 'dark':
+                    document.body.classList.add('dark');
+                    break;
+                case 'system':
+                default:
+                    // Follow system preference
+                    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    if (systemPrefersDark) {
+                        document.body.classList.add('dark');
+                    } else {
+                        document.body.classList.remove('dark');
+                    }
+                    break;
+            }
+            
+            // Update dropdown selection to match current theme
+            if (themeSelect) {
+                themeSelect.value = theme;
             }
         }
 
-        function toggleDarkMode() {
-            const isDark = document.body.classList.toggle('dark');
-            localStorage.setItem('darkMode', isDark);
-            updateDarkModeToggle(isDark);
+        // Listen for system theme changes
+        function setupSystemThemeListener() {
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            mediaQuery.addEventListener('change', function() {
+                const currentTheme = localStorage.getItem('themeMode') || 'system';
+                if (currentTheme === 'system') {
+                    applyTheme('system'); // Re-apply system theme
+                }
+            });
         }
 
-        function updateDarkModeToggle(isDark) {
-            const icon = document.getElementById('darkModeIcon');
-            const text = document.getElementById('darkModeText');
-            
-            if (isDark) {
-                icon.textContent = '☀️';
-                text.textContent = 'Light Mode';
-            } else {
-                icon.textContent = '🌙';
-                text.textContent = 'Dark Mode';
+        // Migrate old dark mode setting to new theme system
+        function migrateLegacyTheme() {
+            const oldDarkMode = localStorage.getItem('darkMode');
+            if (oldDarkMode !== null) {
+                // Convert old boolean to new theme system
+                const newTheme = oldDarkMode === 'true' ? 'dark' : 'light';
+                localStorage.setItem('themeMode', newTheme);
+                localStorage.removeItem('darkMode'); // Clean up old setting
+                console.log('Migrated theme preference from legacy format');
             }
         }
 
         // State management functions
         function saveState() {
+            // URL params - keep lightweight (no tracking data)
             const urlParams = new URLSearchParams();
             urlParams.set('bookmarks', JSON.stringify(appState.bookmarks));
             urlParams.set('depths', JSON.stringify(appState.currentDepth));
@@ -1503,14 +1938,22 @@
             const newUrl = window.location.pathname + '?' + urlParams.toString();
             window.history.replaceState({}, '', newUrl);
             
-            // Also save to memory for session persistence
+            // Save full state to localStorage for persistence
+            try {
+                localStorage.setItem('ketoAppState', JSON.stringify(appState));
+                localStorage.setItem('ketoAppLastSaved', new Date().toISOString());
+            } catch (e) {
+                console.error('Failed to save to localStorage:', e);
+            }
+            
+            // Also save to sessionStorage as backup
             sessionStorage.setItem('ketoAppState', JSON.stringify(appState));
         }
 
         function loadState() {
-            // Try to load from URL first, then sessionStorage
+            // Try to load from URL first (lightweight data), then localStorage, then sessionStorage
             const urlParams = new URLSearchParams(window.location.search);
-            const savedState = sessionStorage.getItem('ketoAppState');
+            const savedState = localStorage.getItem('ketoAppState') || sessionStorage.getItem('ketoAppState');
             
             if (urlParams.has('bookmarks')) {
                 try {
@@ -1520,9 +1963,21 @@
                 } catch (e) {
                     console.log('Error loading URL state:', e);
                 }
-            } else if (savedState) {
+            }
+            
+            // Load full state (including tracking data) from storage
+            if (savedState) {
                 try {
-                    appState = JSON.parse(savedState);
+                    const parsed = JSON.parse(savedState);
+                    // Merge with current state to preserve any URL-loaded data
+                    appState = {
+                        ...appState,
+                        ...parsed,
+                        // Ensure arrays exist
+                        ketoneReadings: parsed.ketoneReadings || [],
+                        symptomEntries: parsed.symptomEntries || [],
+                        calculatorProfiles: parsed.calculatorProfiles || []
+                    };
                 } catch (e) {
                     console.log('Error loading saved state:', e);
                 }
@@ -1531,23 +1986,394 @@
             // Restore UI state
             updateBookmarksList();
             restoreDepthSettings();
+            updateKetoneHistory();
+            updateSymptomHistory();
+            updateDataManagementStatus();
         }
 
-        function initializeDepths() {
-            // Set default depth for each module
-            const modules = ['overview', 'science', 'safety', 'implementation', 'evidence'];
-            modules.forEach(module => {
-                if (!appState.currentDepth[module]) {
-                    appState.currentDepth[module] = 'basic';
+        // New data management functions
+        function saveTrackingData() {
+            try {
+                localStorage.setItem('ketoAppState', JSON.stringify(appState));
+                localStorage.setItem('ketoAppLastSaved', new Date().toISOString());
+                updateDataManagementStatus();
+                showDataMessage('Data saved successfully!', 'success');
+            } catch (e) {
+                console.error('Failed to save data:', e);
+                showDataMessage('Failed to save data. Storage may be full.', 'error');
+            }
+        }
+
+        function loadTrackingData() {
+            const savedState = localStorage.getItem('ketoAppState');
+            if (!savedState) {
+                showDataMessage('No saved data found.', 'info');
+                return;
+            }
+            
+            try {
+                const parsed = JSON.parse(savedState);
+                appState.ketoneReadings = parsed.ketoneReadings || [];
+                appState.symptomEntries = parsed.symptomEntries || [];
+                appState.userProfile = parsed.userProfile || {};
+                
+                updateKetoneHistory();
+                updateSymptomHistory();
+                updateDataManagementStatus();
+                showDataMessage('Data loaded successfully!', 'success');
+            } catch (e) {
+                console.error('Failed to load data:', e);
+                showDataMessage('Failed to load data. Data may be corrupted.', 'error');
+            }
+        }
+
+        function clearAllTrackingData() {
+            if (!confirm('Are you sure you want to clear all tracking data? This cannot be undone.')) {
+                return;
+            }
+            
+            appState.ketoneReadings = [];
+            appState.symptomEntries = [];
+            
+            // Clear from storage
+            try {
+                localStorage.removeItem('ketoAppState');
+                localStorage.removeItem('ketoAppLastSaved');
+                sessionStorage.removeItem('ketoAppState');
+            } catch (e) {
+                console.error('Failed to clear storage:', e);
+            }
+            
+            updateKetoneHistory();
+            updateSymptomHistory();
+            updateDataManagementStatus();
+            showDataMessage('All tracking data cleared.', 'info');
+        }
+
+        function exportTrackingData() {
+            const exportData = {
+                ketoneReadings: appState.ketoneReadings,
+                symptomEntries: appState.symptomEntries,
+                userProfile: appState.userProfile,
+                exportDate: new Date().toISOString(),
+                version: '1.0'
+            };
+            
+            const dataStr = JSON.stringify(exportData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = `keto-tracking-data-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showDataMessage('Data exported successfully!', 'success');
+        }
+
+        function importTrackingData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const importedData = JSON.parse(e.target.result);
+                    
+                    // Validate data structure
+                    if (!importedData.ketoneReadings && !importedData.symptomEntries) {
+                        throw new Error('Invalid data format');
+                    }
+                    
+                    // Confirm import
+                    const ketoneCount = importedData.ketoneReadings?.length || 0;
+                    const symptomCount = importedData.symptomEntries?.length || 0;
+                    
+                    if (!confirm(`Import ${ketoneCount} ketone readings and ${symptomCount} symptom entries? This will replace your current data.`)) {
+                        return;
+                    }
+                    
+                    // Import data
+                    appState.ketoneReadings = importedData.ketoneReadings || [];
+                    appState.symptomEntries = importedData.symptomEntries || [];
+                    if (importedData.userProfile) {
+                        appState.userProfile = importedData.userProfile;
+                    }
+                    
+                    // Save and update UI
+                    saveTrackingData();
+                    updateKetoneHistory();
+                    updateSymptomHistory();
+                    updateDataManagementStatus();
+                    showDataMessage('Data imported successfully!', 'success');
+                    
+                } catch (e) {
+                    console.error('Import failed:', e);
+                    showDataMessage('Failed to import data. Please check file format.', 'error');
                 }
-            });
+            };
+            reader.readAsText(file);
+            
+            // Clear the input
+            event.target.value = '';
         }
 
-        function restoreDepthSettings() {
-            Object.keys(appState.currentDepth).forEach(module => {
-                const depth = appState.currentDepth[module];
-                setDepth(module, depth, false);
-            });
+        function updateDataManagementStatus() {
+            const statusDiv = document.getElementById('dataStatus');
+            if (!statusDiv) return;
+            
+            const lastSaved = localStorage.getItem('ketoAppLastSaved');
+            const ketoneCount = appState.ketoneReadings.length;
+            const symptomCount = appState.symptomEntries.length;
+            const calculatorCount = appState.calculatorProfiles ? appState.calculatorProfiles.length : 0;
+            
+            const statusGrid = statusDiv.querySelector('.status-grid');
+            if (statusGrid) {
+                statusGrid.innerHTML = `
+                    <div class="status-item">
+                        <strong>${ketoneCount}</strong>
+                        <span>Ketone Readings</span>
+                    </div>
+                    <div class="status-item">
+                        <strong>${symptomCount}</strong>
+                        <span>Symptom Entries</span>
+                    </div>
+                    <div class="status-item">
+                        <strong>${calculatorCount}</strong>
+                        <span>Calculator Saves</span>
+                    </div>
+                `;
+            }
+            
+            // Update or add last saved info
+            let lastSavedDiv = statusDiv.querySelector('.last-saved');
+            if (lastSaved) {
+                const saveDate = new Date(lastSaved);
+                const lastSavedHTML = `<p class="last-saved" style="font-size: 14px; opacity: 0.7; text-align: center; margin-top: 12px;">
+                    Last saved: ${saveDate.toLocaleDateString()} at ${saveDate.toLocaleTimeString()}
+                </p>`;
+                
+                if (lastSavedDiv) {
+                    lastSavedDiv.outerHTML = lastSavedHTML;
+                } else {
+                    statusDiv.insertAdjacentHTML('beforeend', lastSavedHTML);
+                }
+            } else if (lastSavedDiv) {
+                lastSavedDiv.remove();
+            }
+        }
+
+        function showDataMessage(message, type) {
+            const messageDiv = document.getElementById('dataMessage');
+            if (!messageDiv) return;
+            
+            const colors = {
+                success: '#22543d',
+                error: '#c53030',
+                info: '#2c5282'
+            };
+            
+            const bgColors = {
+                success: '#c6f6d5',
+                error: '#fed7d7',
+                info: '#bee3f8'
+            };
+            
+            messageDiv.style.display = 'block';
+            messageDiv.style.padding = '12px';
+            messageDiv.style.borderRadius = '6px';
+            messageDiv.style.margin = '16px 0';
+            messageDiv.style.color = colors[type];
+            messageDiv.style.backgroundColor = bgColors[type];
+            messageDiv.textContent = message;
+            
+            // Auto-hide after 3 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 3000);
+        }
+
+        // Individual tracker data management functions
+        function exportKetoneData() {
+            if (appState.ketoneReadings.length === 0) {
+                showDataMessage('No ketone data to export.', 'info');
+                return;
+            }
+            
+            const exportData = {
+                ketoneReadings: appState.ketoneReadings,
+                exportDate: new Date().toISOString(),
+                version: '1.0'
+            };
+            
+            const dataStr = JSON.stringify(exportData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = `ketone-readings-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showDataMessage('Ketone data exported!', 'success');
+        }
+
+        function clearKetoneData() {
+            if (!confirm('Clear all ketone readings? This cannot be undone.')) {
+                return;
+            }
+            
+            appState.ketoneReadings = [];
+            updateKetoneHistory();
+            updateDataManagementStatus();
+            saveState();
+            showDataMessage('Ketone readings cleared.', 'info');
+        }
+
+        function exportSymptomData() {
+            if (appState.symptomEntries.length === 0) {
+                showDataMessage('No symptom data to export.', 'info');
+                return;
+            }
+            
+            const exportData = {
+                symptomEntries: appState.symptomEntries,
+                exportDate: new Date().toISOString(),
+                version: '1.0'
+            };
+            
+            const dataStr = JSON.stringify(exportData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = `symptom-entries-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showDataMessage('Symptom data exported!', 'success');
+        }
+
+        function clearSymptomData() {
+            if (!confirm('Clear all symptom entries? This cannot be undone.')) {
+                return;
+            }
+            
+            appState.symptomEntries = [];
+            updateSymptomHistory();
+            updateDataManagementStatus();
+            saveState();
+            showDataMessage('Symptom entries cleared.', 'info');
+        }
+
+        // Calculator profile management
+        function saveCalculatorProfile() {
+            const profile = {
+                age: document.getElementById('age').value,
+                sex: document.getElementById('sex').value,
+                weight: document.getElementById('weight').value,
+                activity: document.getElementById('activity').value,
+                goal: document.getElementById('goal').value,
+                unitSystem: document.getElementById('unitSystem').value,
+                macros: appState.userProfile.macros,
+                savedDate: new Date().toISOString()
+            };
+            
+            // Get height based on unit system
+            if (profile.unitSystem === 'imperial') {
+                profile.heightFeet = document.getElementById('heightFeet')?.value;
+                profile.heightInches = document.getElementById('heightInches')?.value;
+            } else {
+                profile.heightCm = document.getElementById('heightCm')?.value;
+            }
+            
+            if (!appState.calculatorProfiles) {
+                appState.calculatorProfiles = [];
+            }
+            
+            // Add to saved profiles (keep last 5)
+            appState.calculatorProfiles.unshift(profile);
+            appState.calculatorProfiles = appState.calculatorProfiles.slice(0, 5);
+            
+            updateDataManagementStatus();
+            saveState();
+            showDataMessage('Calculator profile saved!', 'success');
+        }
+
+        function loadCalculatorProfile() {
+            if (!appState.calculatorProfiles || appState.calculatorProfiles.length === 0) {
+                showDataMessage('No saved calculator profiles found.', 'info');
+                return;
+            }
+            
+            const profile = appState.calculatorProfiles[0]; // Load most recent
+            
+            document.getElementById('age').value = profile.age || '';
+            document.getElementById('sex').value = profile.sex || 'male';
+            document.getElementById('weight').value = profile.weight || '';
+            document.getElementById('activity').value = profile.activity || '1.2';
+            document.getElementById('goal').value = profile.goal || 'maintain';
+            document.getElementById('unitSystem').value = profile.unitSystem || 'imperial';
+            
+            // Switch units to match saved profile
+            switchUnits();
+            
+            // Set height based on unit system
+            if (profile.unitSystem === 'imperial') {
+                if (document.getElementById('heightFeet')) {
+                    document.getElementById('heightFeet').value = profile.heightFeet || '';
+                }
+                if (document.getElementById('heightInches')) {
+                    document.getElementById('heightInches').value = profile.heightInches || '';
+                }
+            } else {
+                if (document.getElementById('heightCm')) {
+                    document.getElementById('heightCm').value = profile.heightCm || '';
+                }
+            }
+            
+            // Restore macros if they exist
+            if (profile.macros) {
+                appState.userProfile.macros = profile.macros;
+                // Re-display macro results if they exist
+                if (document.getElementById('macroResults')) {
+                    calculateMacros();
+                }
+            }
+            
+            showDataMessage('Calculator profile loaded!', 'success');
+        }
+
+        function clearCalculatorProfile() {
+            if (!confirm('Clear calculator settings and saved profiles? This cannot be undone.')) {
+                return;
+            }
+            
+            // Clear form
+            document.getElementById('age').value = '';
+            document.getElementById('sex').value = 'male';
+            document.getElementById('weight').value = '';
+            document.getElementById('activity').value = '1.2';
+            document.getElementById('goal').value = 'maintain';
+            document.getElementById('unitSystem').value = 'imperial';
+            switchUnits(); // Reset height inputs
+            
+            // Clear saved profiles and results
+            appState.calculatorProfiles = [];
+            appState.userProfile.macros = {};
+            
+            // Hide results
+            const resultsDiv = document.getElementById('macroResults');
+            if (resultsDiv) {
+                resultsDiv.style.display = 'none';
+            }
+            
+            updateDataManagementStatus();
+            saveState();
+            showDataMessage('Calculator cleared.', 'info');
         }
 
         // Navigation functions
@@ -1596,7 +2422,7 @@
             bookmarksList.innerHTML = '';
             
             if (appState.bookmarks.length === 0) {
-                bookmarksList.innerHTML = '<p style="color: #666; font-style: italic;">No bookmarks yet</p>';
+                bookmarksList.innerHTML = '<p style="opacity: 0.7; font-style: italic;">No bookmarks yet</p>';
                 return;
             }
             
@@ -1614,7 +2440,7 @@
                 bookmarkItem.className = 'bookmark-item';
                 bookmarkItem.innerHTML = `
                     <span>${moduleNames[moduleId] || moduleId}</span>
-                    <button onclick="removeBookmark('${moduleId}')" style="background: none; border: none; color: #666; cursor: pointer;">×</button>
+                    <button onclick="removeBookmark('${moduleId}')" class="bookmark-remove-btn">×</button>
                 `;
                 bookmarkItem.onclick = () => scrollToModule(moduleId);
                 bookmarksList.appendChild(bookmarkItem);
@@ -1827,10 +2653,10 @@
                         <p>${Math.round((fatCals/calories)*100)}% of calories</p>
                     </div>
                 </div>
-                <div style="text-align: center; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e2e8f0;">
+                <div class="calc-total-section">
                     <strong>Total Daily Calories: ${Math.round(calories)}</strong>
                     <br>
-                    <small style="color: #666; margin-top: 8px; display: block;">
+                    <small style="opacity: 0.7; margin-top: 8px; display: block;">
                         BMR: ${Math.round(bmr)} calories | TDEE: ${Math.round(tdee)} calories
                     </small>
                 </div>
@@ -1871,6 +2697,8 @@
             appState.ketoneReadings.sort((a, b) => b.timestamp - a.timestamp);
             
             updateKetoneHistory();
+            updateDataManagementStatus();
+            saveState(); // Auto-save after adding entry
             
             // Clear form
             document.getElementById('ketoneLevel').value = '';
@@ -1881,7 +2709,7 @@
             const history = document.getElementById('ketoneHistory');
             
             if (appState.ketoneReadings.length === 0) {
-                history.innerHTML = '<p style="margin-top: 16px; color: #666;">No readings yet</p>';
+                history.innerHTML = '<p style="margin-top: 16px; opacity: 0.7;">No readings yet</p>';
                 return;
             }
             
@@ -1904,7 +2732,7 @@
                 }
                 
                 historyHTML += `
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px; margin: 4px 0; background: #f8fafc; border-radius: 4px;">
+                    <div class="history-entry">
                         <span>${reading.datetime}</span>
                         <span style="color: ${levelColor}; font-weight: 500;">
                             ${reading.level} mM - ${levelText}
@@ -1952,6 +2780,8 @@
             appState.symptomEntries.sort((a, b) => b.timestamp - a.timestamp);
             
             updateSymptomHistory();
+            updateDataManagementStatus();
+            saveState(); // Auto-save after adding entry
             
             // Reset form
             checkboxes.forEach(symptom => {
@@ -1963,7 +2793,7 @@
             const history = document.getElementById('symptomHistory');
             
             if (appState.symptomEntries.length === 0) {
-                history.innerHTML = '<p style="margin-top: 16px; color: #666;">No entries yet</p>';
+                history.innerHTML = '<p style="margin-top: 16px; opacity: 0.7;">No entries yet</p>';
                 return;
             }
             
@@ -1972,7 +2802,7 @@
             
             recent.forEach(entry => {
                 historyHTML += `
-                    <div style="padding: 12px; margin: 8px 0; background: #f8fafc; border-radius: 6px;">
+                    <div class="symptom-entry">
                         <div style="font-weight: 500; margin-bottom: 8px;">${entry.date}</div>
                         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; font-size: 14px;">
                             <span>Energy: ${entry.energy}/10</span>
@@ -2051,6 +2881,23 @@
             document.getElementById('ketoneDate').value = today;
             document.getElementById('symptomDate').value = today;
         });
+
+        function initializeDepths() {
+            // Set default depth for each module
+            const modules = ['overview', 'science', 'safety', 'implementation', 'evidence'];
+            modules.forEach(module => {
+                if (!appState.currentDepth[module]) {
+                    appState.currentDepth[module] = 'basic';
+                }
+            });
+        }
+
+        function restoreDepthSettings() {
+            Object.keys(appState.currentDepth).forEach(module => {
+                const depth = appState.currentDepth[module];
+                setDepth(module, depth, false);
+            });
+        }
     </script>
 </body>
 </html>
