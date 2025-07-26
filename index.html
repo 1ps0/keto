@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ketogenic Diet: Science-Based Explainer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #f7fafc;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark {
+            color: #e2e8f0;
+            background: #1a202c;
+        }
+
+        .header-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: rgba(26, 54, 93, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body.dark .header-nav {
+            background: rgba(13, 13, 13, 0.95);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-menu {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .nav-menu:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .bookmarks-toggle {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .bookmarks-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            height: 3px;
+            background: #38b2ac;
+            transition: width 0.3s ease;
+            z-index: 999;
+        }
+
+        .main-content {
+            margin-top: 80px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+            min-height: 100vh;
+        }
+
+        .module {
+            background: white;
+            margin: 40px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            overflow: hidden;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body.dark .module {
+            background: #2d3748;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .module-header {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 24px;
+            position: relative;
+            transition: box-shadow 0.3s ease;
+        }
+
+        body.dark .module-header {
+            background: linear-gradient(135deg, #0d1117 0%, #1a1f2e 100%);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .module-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .module-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .bookmark-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .bookmark-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .bookmark-btn.active {
+            background: #38b2ac;
+        }
+
+        .module-content {
+            padding: 32px;
+        }
+
+        .depth-controls {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            padding: 4px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        body.dark .depth-controls {
+            background: #1a202c;
+        }
+
+        .depth-btn {
+            flex: 1;
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+            font-weight: 500;
+            color: inherit;
+        }
+
+        .depth-btn.active {
+            background: #38b2ac;
+            color: white;
+        }
+
+        .depth-content {
+            display: none;
+        }
+
+        .depth-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .evidence-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        .evidence-high {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        body.dark .evidence-high {
+            background: rgba(34, 84, 61, 0.3);
+            color: #9ae6b4;
+        }
+
+        .evidence-medium {
+            background: #fef5e7;
+            color: #c05621;
+        }
+
+        body.dark .evidence-medium {
+            background: rgba(192, 86, 33, 0.3);
+            color: #fbb040;
+        }
+
+        .evidence-low {
+            background: #fed7d7;
+            color: #c53030;
+        }
+
+        body.dark .evidence-low {
+            background: rgba(197, 48, 48, 0.3);
+            color: #fc8181;
+        }
+
+        .infographic {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 24px 0;
+            text-align: center;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body.dark .infographic {
+            background: #1a202c;
+            border-color: #4a5568;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 16px 0;
+            padding: 16px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body.dark .timeline-item {
+            background: #2d3748;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-marker {
+            width: 40px;
+            height: 40px;
+            background: #38b2ac;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .calculator {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 24px 0;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body.dark .calculator {
+            background: #1a202c;
+            border-color: #4a5568;
+        }
+
+        .calc-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            margin: 8px 0;
+            font-size: 16px;
+            background: white;
+            color: #2d3748;
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark .calc-input {
+            background: #2d3748;
+            border-color: #4a5568;
+            color: #e2e8f0;
+        }
+
+        body.dark .calc-input::placeholder {
+            color: #a0aec0;
+        }
+
+        .calc-result {
+            background: #1a365d;
+            color: white;
+            padding: 16px;
+            border-radius: 6px;
+            margin-top: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        body.dark .calc-result {
+            background: #0d1117;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .warning-box {
+            background: #fef5e7;
+            border-left: 4px solid #d69e2e;
+            padding: 16px;
+            margin: 16px 0;
+            border-radius: 0 6px 6px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        body.dark .warning-box {
+            background: rgba(214, 158, 46, 0.15);
+            color: #fbb040;
+        }
+
+        .contraindication-box {
+            background: #fed7d7;
+            border-left: 4px solid #e53e3e;
+            padding: 16px;
+            margin: 16px 0;
+            border-radius: 0 6px 6px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        body.dark .contraindication-box {
+            background: rgba(229, 62, 62, 0.15);
+            color: #fc8181;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 60px;
+            right: -350px;
+            width: 350px;
+            height: calc(100vh - 60px);
+            background: white;
+            box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            z-index: 998;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        body.dark .sidebar {
+            background: #2d3748;
+            box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar.open {
+            right: 0;
+        }
+
+        .bookmark-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            margin: 8px 0;
+            background: #f8fafc;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        body.dark .bookmark-item {
+            background: #1a202c;
+        }
+
+        .bookmark-item:hover {
+            background: #e2e8f0;
+        }
+
+        body.dark .bookmark-item:hover {
+            background: #4a5568;
+        }
+
+        .assessment-quiz {
+            background: #f0fff4;
+            border: 1px solid #9ae6b4;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 24px 0;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body.dark .assessment-quiz {
+            background: rgba(154, 230, 180, 0.1);
+            border-color: #38a169;
+        }
+
+        .quiz-question {
+            margin: 16px 0;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .quiz-option {
+            padding: 12px;
+            background: white;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        body.dark .quiz-option {
+            background: #2d3748;
+            border-color: #4a5568;
+            color: #e2e8f0;
+        }
+
+        .quiz-option:hover {
+            background: #e2e8f0;
+            border-color: #38b2ac;
+        }
+
+        body.dark .quiz-option:hover {
+            background: #4a5568;
+            border-color: #38b2ac;
+        }
+
+        .quiz-option.selected {
+            background: #38b2ac;
+            color: white;
+            border-color: #38b2ac;
+        }
+
+        .dark-mode-toggle {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin: 8px 0;
+            background: #f8fafc;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            border: none;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        body.dark .dark-mode-toggle {
+            background: #1a202c;
+            color: #e2e8f0;
+        }
+
+        .dark-mode-toggle:hover {
+            background: #e2e8f0;
+        }
+
+        body.dark .dark-mode-toggle:hover {
+            background: #4a5568;
+        }
+
+        h1 { font-size: 32px; font-weight: 700; margin: 32px 0 16px 0; }
+        h2 { font-size: 24px; font-weight: 600; margin: 24px 0 12px 0; }
+        h3 { font-size: 20px; font-weight: 600; margin: 20px 0 10px 0; }
+        h4 { font-size: 18px; font-weight: 500; margin: 16px 0 8px 0; }
+
+        p { margin: 16px 0; }
+        
+        ul, ol { margin: 16px 0; padding-left: 24px; }
+        li { margin: 8px 0; }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 0 16px;
+            }
+            
+            .module-content {
+                padding: 20px;
+            }
+            
+            .depth-controls {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                right: -100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-nav">
+        <button class="bookmarks-toggle" onclick="toggleSidebar()">📌 Bookmarks</button>
+        <div style="display: flex; gap: 12px; align-items: center;">
+            <a href="https://github.com/1ps0/keto" target="_blank" style="color: white; text-decoration: none; padding: 8px; border-radius: 4px; transition: background 0.2s; display: flex; align-items: center;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='none'">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+            <button class="nav-menu" onclick="toggleSidebar()">☰ Menu</button>
+        </div>
+    </div>
+    
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <div class="sidebar" id="sidebar">
+        <h3>Your Bookmarks</h3>
+        <div id="bookmarksList"></div>
+        
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+            <span id="darkModeIcon">🌙</span>
+            <span style="margin-left: 8px;" id="darkModeText">Dark Mode</span>
+        </button>
+        
+        <h3 style="margin-top: 32px;">Quick Navigation</h3>
+        <div class="bookmark-item" onclick="scrollToModule('overview')">📋 Overview & Assessment</div>
+        <div class="bookmark-item" onclick="scrollToModule('science')">🧬 The Science</div>
+        <div class="bookmark-item" onclick="scrollToModule('safety')">⚠️ Safety & Risks</div>
+        <div class="bookmark-item" onclick="scrollToModule('implementation')">🎯 Implementation</div>
+        <div class="bookmark-item" onclick="scrollToModule('calculator')">🧮 Calculator Tools</div>
+        <div class="bookmark-item" onclick="scrollToModule('evidence')">📊 Evidence Review</div>
+    </div>
+
+    <div class="main-content">
+        <!-- Overview Module -->
+        <div class="module" id="overview">
+            <div class="module-header">
+                <button class="bookmark-btn" onclick="toggleBookmark('overview')">📌</button>
+                <h1 class="module-title">Understanding Ketogenic Diets</h1>
+                <p class="module-subtitle">Evidence-based guide to metabolic science and practical implementation</p>
+            </div>
+            <div class="module-content">
+                <div class="depth-controls">
+                    <button class="depth-btn active" onclick="setDepth('overview', 'basic')">Quick Overview</button>
+                    <button class="depth-btn" onclick="setDepth('overview', 'detailed')">Detailed</button>
+                    <button class="depth-btn" onclick="setDepth('overview', 'technical')">Technical</button>
+                </div>
+                
+                <div class="depth-content active" id="overview-basic">
+                    <h2>What is the ketogenic diet?</h2>
+                    <p>A ketogenic diet drastically reduces carbohydrates (typically under 50g daily) and increases fats, forcing your body to burn fat for fuel instead of glucose. This metabolic state is called ketosis.</p>
+                    
+                    <div class="infographic">
+                        <h3>Your Body's Fuel Switch</h3>
+                        <p><strong>Normal Diet:</strong> Glucose (sugar) → Energy</p>
+                        <p><strong>Ketogenic Diet:</strong> Fat → Ketones → Energy</p>
+                        <p><em>This switch typically takes 2-6 weeks to fully adapt</em></p>
+                    </div>
+                    
+                    <h3>Key Points:</h3>
+                    <ul>
+                        <li>Originally developed in the 1920s to treat epilepsy <span class="evidence-indicator evidence-high">High Evidence</span></li>
+                        <li>Requires significant lifestyle changes and careful monitoring</li>
+                        <li>Individual responses vary dramatically</li>
+                        <li>Not appropriate for everyone - medical consultation recommended</li>
+                    </ul>
+                </div>
+                
+                <div class="depth-content" id="overview-detailed">
+                    <h2>The Metabolic Transformation</h2>
+                    <p>Ketosis represents a fundamental shift in how your body produces energy. When carbohydrate intake drops below approximately 50 grams per day, liver glycogen stores become depleted within 1-2 days. The liver then begins converting fatty acids into ketone bodies: β-hydroxybutyrate, acetoacetate, and acetone.</p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">1</div>
+                            <div>
+                                <strong>Days 1-3:</strong> Glycogen depletion, initial ketone production
+                                <br><em>Common: fatigue, irritability, increased urination</em>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">7</div>
+                            <div>
+                                <strong>Week 1:</strong> Brain begins adapting to ketones
+                                <br><em>Peak of "keto flu" symptoms</em>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">21</div>
+                            <div>
+                                <strong>Week 3:</strong> Enzyme upregulation, improved fat oxidation
+                                <br><em>Energy levels typically stabilize</em>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">60</div>
+                            <div>
+                                <strong>2+ Months:</strong> Full metabolic adaptation
+                                <br><em>Maximum ketone utilization efficiency</em>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>Macronutrient Ratios</h3>
+                    <ul>
+                        <li><strong>Standard Ketogenic:</strong> 70-75% fat, 20-25% protein, 5-10% carbs</li>
+                        <li><strong>Therapeutic:</strong> 80-90% fat, 10-15% protein, <5% carbs</li>
+                        <li><strong>Modified Atkins:</strong> 60-70% fat, 25-30% protein, 5-10% carbs</li>
+                    </ul>
+                </div>
+                
+                <div class="depth-content" id="overview-technical">
+                    <h2>Biochemical Mechanisms</h2>
+                    <p>Ketogenesis occurs primarily in liver mitochondria through β-oxidation of fatty acids. The rate-limiting enzyme HMG-CoA synthase catalyzes acetoacetyl-CoA and acetyl-CoA condensation. Ketone utilization requires tissue-specific adaptations:</p>
+                    
+                    <ul>
+                        <li><strong>Brain:</strong> Monocarboxylate transporters (MCT1, MCT2) facilitate ketone uptake across blood-brain barrier. Adaptation involves increased transporter expression and enzymatic activity.</li>
+                        <li><strong>Muscle:</strong> Enhanced fat oxidation through increased CPT1 activity and mitochondrial biogenesis via PGC-1α upregulation.</li>
+                        <li><strong>Heart:</strong> Preferential ketone utilization even in non-ketotic states; improved mechanical efficiency documented.</li>
+                    </ul>
+                    
+                    <h3>Metabolic Flexibility Factors</h3>
+                    <p>Individual variation in ketogenic adaptation correlates with:</p>
+                    <ul>
+                        <li>PPAR-α polymorphisms affecting fat oxidation capacity</li>
+                        <li>CPT1A variants influencing fatty acid oxidation</li>
+                        <li>Baseline insulin sensitivity and metabolic syndrome markers</li>
+                        <li>Gut microbiome composition affecting SCFA production</li>
+                    </ul>
+                </div>
+                
+                <div class="assessment-quiz">
+                    <h3>Personal Relevance Assessment</h3>
+                    <div class="quiz-question">
+                        <strong>What's your primary interest in ketogenic diets?</strong>
+                        <div class="quiz-options">
+                            <div class="quiz-option" onclick="selectOption(this)">Weight management</div>
+                            <div class="quiz-option" onclick="selectOption(this)">Metabolic health concerns</div>
+                            <div class="quiz-option" onclick="selectOption(this)">Athletic performance</div>
+                            <div class="quiz-option" onclick="selectOption(this)">Neurological conditions</div>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <strong>Current health status:</strong>
+                        <div class="quiz-options">
+                            <div class="quiz-option" onclick="selectOption(this)">Generally healthy, no medications</div>
+                            <div class="quiz-option" onclick="selectOption(this)">Pre-diabetes or metabolic syndrome</div>
+                            <div class="quiz-option" onclick="selectOption(this)">Type 2 diabetes (managed)</div>
+                            <div class="quiz-option" onclick="selectOption(this)">Other chronic conditions</div>
+                        </div>
+                    </div>
+                    
+                    <button onclick="generateRecommendation()" style="background: #38b2ac; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; margin-top: 16px;">Get Personalized Reading Path</button>
+                    <div id="recommendation"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Science Module -->
+        <div class="module" id="science">
+            <div class="module-header">
+                <button class="bookmark-btn" onclick="toggleBookmark('science')">📌</button>
+                <h1 class="module-title">The Science of Ketosis</h1>
+                <p class="module-subtitle">Metabolic mechanisms and physiological adaptations</p>
+            </div>
+            <div class="module-content">
+                <div class="depth-controls">
+                    <button class="depth-btn active" onclick="setDepth('science', 'basic')">Basic</button>
+                    <button class="depth-btn" onclick="setDepth('science', 'detailed')">Detailed</button>
+                    <button class="depth-btn" onclick="setDepth('science', 'technical')">Technical</button>
+                </div>
+                
+                <div class="depth-content active" id="science-basic">
+                    <h2>How Your Body Makes Ketones</h2>
+                    <p>When you drastically reduce carbohydrates, your liver starts breaking down fat into molecules called ketones. These ketones can fuel your brain and muscles instead of glucose.</p>
+                    
+                    <div class="infographic">
+                        <h3>The Ketone Production Process</h3>
+                        <p><strong>Step 1:</strong> Low carbs → Depleted glucose stores</p>
+                        <p><strong>Step 2:</strong> Body breaks down fat → Fatty acids</p>
+                        <p><strong>Step 3:</strong> Liver converts fatty acids → Ketones</p>
+                        <p><strong>Step 4:</strong> Ketones travel to brain and muscles for energy</p>
+                    </div>
+                    
+                    <h3>What Changes in Your Body</h3>
+                    <ul>
+                        <li><strong>Energy levels:</strong> May drop initially, then stabilize or improve</li>
+                        <li><strong>Appetite:</strong> Often decreases due to ketone effects on hunger hormones</li>
+                        <li><strong>Mental clarity:</strong> Some report improved focus <span class="evidence-indicator evidence-medium">Mixed Evidence</span></li>
+                        <li><strong>Physical performance:</strong> May decrease initially, varies long-term</li>
+                    </ul>
+                </div>
+                
+                <div class="depth-content" id="science-detailed">
+                    <h2>Physiological Adaptations</h2>
+                    <p>Ketogenic adaptation involves multiple organ systems coordinating metabolic changes over weeks to months.</p>
+                    
+                    <h3>Brain Adaptation</h3>
+                    <p>The brain typically uses glucose exclusively, but can adapt to use ketones for up to 70% of its energy needs. This requires:</p>
+                    <ul>
+                        <li>Increased ketone transport proteins at the blood-brain barrier</li>
+                        <li>Enhanced enzymatic machinery for ketone utilization</li>
+                        <li>Potential neuroprotective effects through multiple mechanisms <span class="evidence-indicator evidence-medium">Emerging Evidence</span></li>
+                    </ul>
+                    
+                    <h3>Muscle Adaptations</h3>
+                    <p>Skeletal muscle undergoes significant changes:</p>
+                    <ul>
+                        <li>Increased fat oxidation enzyme activity</li>
+                        <li>Enhanced mitochondrial density and function</li>
+                        <li>Reduced glucose dependence during exercise</li>
+                        <li>Potential preservation of muscle glycogen stores</li>
+                    </ul>
+                    
+                    <h3>Hormonal Changes</h3>
+                    <ul>
+                        <li><strong>Insulin:</strong> Dramatically reduced levels, improved sensitivity <span class="evidence-indicator evidence-high">Strong Evidence</span></li>
+                        <li><strong>Glucagon:</strong> Increased to maintain glucose homeostasis</li>
+                        <li><strong>Growth hormone:</strong> May increase, particularly during fasting periods</li>
+                        <li><strong>Thyroid hormones:</strong> Potential decrease in T3 with very low-carb approaches</li>
+                    </ul>
+                </div>
+                
+                <div class="depth-content" id="science-technical">
+                    <h2>Molecular Mechanisms</h2>
+                    
+                    <h3>Ketogenesis Pathway</h3>
+                    <p>Hepatic ketogenesis occurs via the following pathway:</p>
+                    <ol>
+                        <li>Fatty acid β-oxidation produces acetyl-CoA</li>
+                        <li>HMG-CoA synthase catalyzes acetoacetyl-CoA + acetyl-CoA → HMG-CoA</li>
+                        <li>HMG-CoA lyase produces acetoacetate</li>
+                        <li>β-hydroxybutyrate dehydrogenase converts acetoacetate ⇌ β-hydroxybutyrate</li>
+                        <li>Spontaneous decarboxylation produces acetone</li>
+                    </ol>
+                    
+                    <h3>Tissue-Specific Utilization</h3>
+                    <p><strong>Brain:</strong> Ketones enter via MCT1 and MCT2, undergo succinyl-CoA:3-ketoacid CoA transferase (SCOT) conversion to acetyl-CoA for TCA cycle entry.</p>
+                    
+                    <p><strong>Muscle:</strong> Enhanced CPT1 activity increases fatty acid oxidation. PGC-1α upregulation drives mitochondrial biogenesis. PPAR-α activation increases fat oxidation gene expression.</p>
+                    
+                    <h3>Metabolic Flexibility Markers</h3>
+                    <ul>
+                        <li>Respiratory exchange ratio (RER) shifts from >0.85 to <0.75</li>
+                        <li>Plasma β-hydroxybutyrate levels 0.5-3.0 mM</li>
+                        <li>Reduced postprandial glucose excursions</li>
+                        <li>Decreased insulin area under curve (AUC)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Safety Module -->
+        <div class="module" id="safety">
+            <div class="module-header">
+                <button class="bookmark-btn" onclick="toggleBookmark('safety')">📌</button>
+                <h1 class="module-title">Safety & Risk Assessment</h1>
+                <p class="module-subtitle">Contraindications, side effects, and monitoring requirements</p>
+            </div>
+            <div class="module-content">
+                <div class="contraindication-box">
+                    <h3>⚠️ Absolute Contraindications</h3>
+                    <p><strong>Do not attempt ketogenic diet if you have:</strong></p>
+                    <ul>
+                        <li>Type 1 diabetes</li>
+                        <li>History of eating disorders</li>
+                        <li>Pregnancy or breastfeeding</li>
+                        <li>Severe kidney or liver disease</li>
+                        <li>Certain genetic conditions (pyruvate carboxylase deficiency, etc.)</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <h3>⚠️ Medical Supervision Required</h3>
+                    <p><strong>Consult healthcare provider if you have:</strong></p>
+                    <ul>
+                        <li>Type 2 diabetes (medication adjustments needed)</li>
+                        <li>High blood pressure (medication monitoring required)</li>
+                        <li>History of kidney stones</li>
+                        <li>Gallbladder disease</li>
+                        <li>Taking medications for seizures, diabetes, or blood pressure</li>
+                    </ul>
+                </div>
+                
+                <div class="depth-controls">
+                    <button class="depth-btn active" onclick="setDepth('safety', 'basic')">Common Issues</button>
+                    <button class="depth-btn" onclick="setDepth('safety', 'detailed')">Detailed Risks</button>
+                    <button class="depth-btn" onclick="setDepth('safety', 'technical')">Clinical Data</button>
+                </div>
+                
+                <div class="depth-content active" id="safety-basic">
+                    <h2>Common Side Effects ("Keto Flu")</h2>
+                    <p>Most people experience some discomfort during the first 1-2 weeks as the body adapts.</p>
+                    
+                    <h3>Typical symptoms:</h3>
+                    <ul>
+                        <li><strong>Fatigue and brain fog</strong> - usually peaks around day 3-5</li>
+                        <li><strong>Headaches</strong> - often related to dehydration and electrolyte imbalance</li>
+                        <li><strong>Irritability and mood changes</strong> - temporary as brain adapts</li>
+                        <li><strong>Digestive changes</strong> - constipation or diarrhea initially</li>
+                        <li><strong>Bad breath</strong> - acetone smell, usually temporary</li>
+                        <li><strong>Sleep disturbances</strong> - may improve after adaptation</li>
+                    </ul>
+                    
+                    <h3>Management strategies:</h3>
+                    <ul>
+                        <li>Increase water intake significantly</li>
+                        <li>Supplement electrolytes (sodium, potassium, magnesium)</li>
+                        <li>Gradual carbohydrate reduction rather than immediate elimination</li>
+                        <li>Adequate sleep and stress management</li>
+                    </ul>
+                </div>
+                
+                <div class="depth-content" id="safety-detailed">
+                    <h2>Long-term Health Considerations</h2>
+                    
+                    <h3>Cardiovascular Effects</h3>
+                    <p>Research shows mixed results: <span class="evidence-indicator evidence-medium">Conflicting Evidence</span></p>
+                    <ul>
+                        <li><strong>Potential benefits:</strong> Improved HDL cholesterol, triglycerides, blood pressure</li>
+                        <li><strong>Concerns:</strong> LDL cholesterol may increase in some individuals</li>
+                        <li><strong>Individual variation:</strong> Genetic factors significantly influence lipid response</li>
+                    </ul>
+                    
+                    <h3>Kidney Function</h3>
+                    <p>Increased protein intake and ketone production may stress kidneys:</p>
+                    <ul>
+                        <li>Regular monitoring of kidney function recommended</li>
+                        <li>Adequate hydration essential</li>
+                        <li>History of kidney stones increases risk</li>
+                    </ul>
+                    
+                    <h3>Bone Health</h3>
+                    <p>Some studies suggest potential calcium loss <span class="evidence-indicator evidence-low">Limited Evidence</span></p>
+                    <ul>
+                        <li>May be related to increased protein intake</li>
+                        <li>Adequate vitamin D and calcium intake important</li>
+                        <li>Weight-bearing exercise recommended</li>
+                    </ul>
+                    
+                    <h3>Nutrient Deficiencies</h3>
+                    <p>Restrictive nature may lead to micronutrient gaps:</p>
+                    <ul>
+                        <li><strong>Fiber:</strong> Reduced intake from limited fruits/grains</li>
+                        <li><strong>B vitamins:</strong> Especially thiamine, folate from grain restrictions</li>
+                        <li><strong>Potassium:</strong> Limited fruit and vegetable variety</li>
+                        <li><strong>Magnesium:</strong> Increased needs due to diuretic effects</li>
+                    </ul>
+                </div>
+                
+                <div class="depth-content" id="safety-technical">
+                    <h2>Clinical Monitoring Parameters</h2>
+                    
+                    <h3>Baseline Assessment</h3>
+                    <p>Before starting ketogenic diet, obtain:</p>
+                    <ul>
+                        <li>Complete metabolic panel (electrolytes, kidney function)</li>
+                        <li>Lipid profile</li>
+                        <li>HbA1c and fasting glucose</li>
+                        <li>Liver function tests</li>
+                        <li>Thyroid function (TSH, T3, T4)</li>
+                        <li>Urinalysis</li>
+                    </ul>
+                    
+                    <h3>Follow-up Monitoring</h3>
+                    <p><strong>Month 1:</strong> Electrolytes, kidney function</p>
+                    <p><strong>Month 3:</strong> Complete metabolic panel, lipids</p>
+                    <p><strong>Month 6:</strong> Full assessment including thyroid function</p>
+                    <p><strong>Annually:</strong> Comprehensive evaluation</p>
+                    
+                    <h3>Red Flag Symptoms</h3>
+                    <p>Discontinue and seek medical attention if experiencing:</p>
+                    <ul>
+                        <li>Persistent nausea, vomiting, abdominal pain</li>
+                        <li>Difficulty breathing or chest pain</li>
+                        <li>Extreme fatigue lasting >2 weeks</li>
+                        <li>Signs of dehydration despite adequate fluid intake</li>
+                        <li>Kidney pain or changes in urination</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Implementation Module -->
+        <div class="module" id="implementation">
+            <div class="module-header">
+                <button class="bookmark-btn" onclick="toggleBookmark('implementation')">📌</button>
+                <h1 class="module-title">Implementation Guide</h1>
+                <p class="module-subtitle">Practical steps for starting and maintaining ketosis</p>
+            </div>
+            <div class="module-content">
+                <div class="depth-controls">
+                    <button class="depth-btn active" onclick="setDepth('implementation', 'basic')">Getting Started</button>
+                    <button class="depth-btn" onclick="setDepth('implementation', 'detailed')">Detailed Protocol</button>
+                    <button class="depth-btn" onclick="setDepth('implementation', 'technical')">Advanced Strategies</button>
+                </div>
+                
+                <div class="depth-content active" id="implementation-basic">
+                    <h2>Phase 1: Preparation (Week Before Starting)</h2>
+                    <ul>
+                        <li><strong>Medical clearance:</strong> Consult healthcare provider</li>
+                        <li><strong>Food preparation:</strong> Remove high-carb foods, stock keto-friendly options</li>
+                        <li><strong>Electrolyte supplements:</strong> Obtain sodium, potassium, magnesium</li>
+                        <li><strong>Ketone testing:</strong> Choose blood, breath, or urine monitoring method</li>
+                        <li><strong>Support system:</strong> Inform family/friends about dietary changes</li>
+                    </ul>
+                    
+                    <h2>Phase 2: Transition (Weeks 1-2)</h2>
+                    <h3>Daily Macronutrient Targets:</h3>
+                    <ul>
+                        <li><strong>Carbohydrates:</strong> <20-50g net carbs</li>
+                        <li><strong>Protein:</strong> 0.8-1.2g per kg body weight</li>
+                        <li><strong>Fat:</strong> Fill remaining calories (70-80% of total)</li>
+                    </ul>
+                    
+                    <h3>Food Choices:</h3>
+                    <div class="infographic">
+                        <h4>✅ Encouraged Foods</h4>
+                        <p><strong>Fats:</strong> Olive oil, avocados, nuts, seeds, fatty fish</p>
+                        <p><strong>Proteins:</strong> Meat, poultry, eggs, cheese</p>
+                        <p><strong>Vegetables:</strong> Leafy greens, broccoli, cauliflower, zucchini</p>
+                        
+                        <h4>❌ Foods to Avoid</h4>
+                        <p><strong>High-carb:</strong> Grains, sugar, fruits (except berries), starchy vegetables</p>
+                        <p><strong>Processed:</strong> Most packaged foods, low-fat products</p>
+                    </div>
+                    
+                    <h2>Phase 3: Monitoring & Adjustment (Weeks 3-8)</h2>
+                    <ul>
+                        <li><strong>Ketone levels:</strong> Target 0.5-3.0 mM blood ketones</li>
+                        <li><strong>Symptoms tracking:</strong> Energy, mood, sleep, digestion</li>
+                        <li><strong>Body composition:</strong> Weight, measurements, how clothes fit</li>
+                        <li><strong>Performance:</strong> Exercise capacity, mental clarity</li>
+                    </ul>
+                </div>
+                
+                <div class="depth-content" id="implementation-detailed">
+                    <h2>Detailed Implementation Protocol</h2>
+                    
+                    <h3>Transition Strategies</h3>
+                    <p><strong>Option 1: Gradual Reduction</strong></p>
+                    <ul>
+                        <li>Week 1: Reduce to 100g carbs/day</li>
+                        <li>Week 2: Reduce to 50g carbs/day</li>
+                        <li>Week 3: Target <20g carbs/day</li>
+                    </ul>
+                    
+                    <p><strong>Option 2: Immediate Transition</strong></p>
+                    <ul>
+                        <li>Jump directly to <20g carbs/day</li>
+                        <li>May cause more severe "keto flu"</li>
+                        <li>Faster entry into ketosis</li>
+                    </ul>
+                    
+                    <h3>Meal Planning Framework</h3>
+                    <p><strong>Daily meal structure example:</strong></p>
+                    <ul>
+                        <li><strong>Breakfast:</strong> 3 eggs cooked in butter, spinach, avocado (5g net carbs)</li>
+                        <li><strong>Lunch:</strong> Salad with chicken, olive oil dressing, nuts (8g net carbs)</li>
+                        <li><strong>Dinner:</strong> Salmon, roasted broccoli, side salad (7g net carbs)</li>
+                        <li><strong>Total:</strong> ~20g net carbs, adequate protein, high fat</li>
+                    </ul>
+                    
+                    <h3>Electrolyte Management</h3>
+                    <p>Critical for preventing side effects:</p>
+                    <ul>
+                        <li><strong>Sodium:</strong> 3-5g daily (1-2 tsp salt)</li>
+                        <li><strong>Potassium:</strong> 3-4g daily (supplements + food sources)</li>
+                        <li><strong>Magnesium:</strong> 300-400mg daily (preferably chelated forms)</li>
+                    </ul>
+                    
+                    <h3>Troubleshooting Common Issues</h3>
+                    <p><strong>Persistent fatigue:</strong></p>
+                    <ul>
+                        <li>Check electrolyte intake</li>
+                        <li>Ensure adequate calories</li>
+                        <li>Consider gradual carb reduction</li>
+                        <li>Evaluate sleep quality</li>
+                    </ul>
+                    
+                    <p><strong>Constipation:</strong></p>
+                    <ul>
+                        <li>Increase fiber from low-carb vegetables</li>
+                        <li>Add MCT oil gradually</li>
+                        <li>Ensure adequate hydration</li>
+                        <li>Consider magnesium supplementation</li>
+                    </ul>
+                    
+                    <p><strong>Not reaching ketosis:</strong></p>
+                    <ul>
+                        <li>Track hidden carbs carefully</li>
+                        <li>Reduce protein if excessive</li>
+                        <li>Consider intermittent fasting</li>
+                        <li>Increase physical activity</li>
+                    </ul>
+                </div>
+                
+                <div class="depth-content" id="implementation-technical">
+                    <h2>Advanced Implementation Strategies</h2>
+                    
+                    <h3>Ketone Testing Methods</h3>
+                    <p><strong>Blood ketones (most accurate):</strong></p>
+                    <ul>
+                        <li>Target range: 0.5-3.0 mM β-hydroxybutyrate</li>
+                        <li>Test timing: Morning fasting, pre/post exercise</li>
+                        <li>Cost: ~$1-2 per test strip</li>
+                    </ul>
+                    
+                    <p><strong>Breath ketones (convenient):</strong></p>
+                    <ul>
+                        <li>Measures acetone levels</li>
+                        <li>Correlates with blood ketones but less precise</li>
+                        <li>One-time device cost, no ongoing strips</li>
+                    </ul>
+                    
+                    <p><strong>Urine ketones (least accurate):</strong></p>
+                    <ul>
+                        <li>Only detects excess ketone excretion</li>
+                        <li>Becomes less reliable as adaptation progresses</li>
+                        <li>Cheapest option for initial monitoring</li>
+                    </ul>
+                    
+                    <h3>Targeted Ketogenic Protocols</h3>
+                    <p><strong>Standard Ketogenic Diet (SKD):</strong></p>
+                    <ul>
+                        <li>Consistent daily macros</li>
+                        <li>Best for beginners</li>
+                        <li>Most research evidence</li>
+                    </ul>
+                    
+                    <p><strong>Cyclical Ketogenic Diet (CKD):</strong></p>
+                    <ul>
+                        <li>5-6 days ketogenic, 1-2 days higher carb</li>
+                        <li>For advanced athletes</li>
+                        <li>Requires careful timing and monitoring</li>
+                    </ul>
+                    
+                    <p><strong>Targeted Ketogenic Diet (TKD):</strong></p>
+                    <ul>
+                        <li>Small amounts of carbs around workouts</li>
+                        <li>15-30g carbs pre/post exercise</li>
+                        <li>Maintains ketosis while supporting performance</li>
+                    </ul>
+                    
+                    <h3>Optimization Strategies</h3>
+                    <p><strong>Intermittent Fasting Integration:</strong></p>
+                    <ul>
+                        <li>16:8 protocol commonly used with keto</li>
+                        <li>Can accelerate ketosis entry</li>
+                        <li>May improve metabolic flexibility</li>
+                    </ul>
+                    
+                    <p><strong>Exercise Considerations:</strong></p>
+                    <ul>
+                        <li>Aerobic capacity may improve after adaptation</li>
+                        <li>High-intensity performance often decreases initially</li>
+                        <li>Strength training generally well-maintained</li>
+                        <li>Individual variation in athletic adaptation significant</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculator Module -->
+        <div class="module" id="calculator">
+            <div class="module-header">
+                <button class="bookmark-btn" onclick="toggleBookmark('calculator')">📌</button>
+                <h1 class="module-title">Calculator Tools</h1>
+                <p class="module-subtitle">Personalized macro calculations and tracking</p>
+            </div>
+            <div class="module-content">
+                <div class="warning-box">
+                    <strong>Disclaimer:</strong> These calculators provide estimates only. Individual needs vary significantly. Consult healthcare provider for personalized recommendations.
+                </div>
+                
+                <div class="calculator">
+                    <h3>Ketogenic Macro Calculator</h3>
+                    <p>Enter your information to estimate daily macronutrient targets:</p>
+                    
+                    <div style="margin-bottom: 16px;">
+                        <label>Unit System:</label>
+                        <select id="unitSystem" class="calc-input" onchange="switchUnits()" style="width: auto; display: inline-block; margin-left: 8px;">
+                            <option value="imperial">US (feet, pounds)</option>
+                            <option value="metric">Metric (cm, kg)</option>
+                        </select>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0;">
+                        <div>
+                            <label>Age:</label>
+                            <input type="number" id="age" class="calc-input" placeholder="years">
+                        </div>
+                        <div>
+                            <label>Sex:</label>
+                            <select id="sex" class="calc-input">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                        <div id="heightInputs">
+                            <label>Height:</label>
+                            <div style="display: flex; gap: 8px;">
+                                <input type="number" id="heightFeet" class="calc-input" placeholder="feet" style="flex: 1;">
+                                <input type="number" id="heightInches" class="calc-input" placeholder="inches" style="flex: 1;">
+                            </div>
+                        </div>
+                        <div>
+                            <label>Weight:</label>
+                            <input type="number" id="weight" class="calc-input" placeholder="pounds" step="0.1">
+                        </div>
+                        <div>
+                            <label>Activity Level:</label>
+                            <select id="activity" class="calc-input">
+                                <option value="1.2">Sedentary (desk job, no exercise)</option>
+                                <option value="1.375">Light activity (light exercise 1-3 days/week)</option>
+                                <option value="1.55">Moderate activity (moderate exercise 3-5 days/week)</option>
+                                <option value="1.725">High activity (hard exercise 6-7 days/week)</option>
+                                <option value="1.9">Very high activity (physical job + exercise)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Goal:</label>
+                            <select id="goal" class="calc-input">
+                                <option value="maintain">Maintain weight</option>
+                                <option value="lose">Lose weight (20% deficit)</option>
+                                <option value="gain">Gain weight (10% surplus)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button onclick="calculateMacros()" style="background: #38b2ac; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer;">Calculate Macros</button>
+                    
+                    <div id="macroResults" class="calc-result" style="display: none;">
+                        <h4>Your Ketogenic Macro Targets:</h4>
+                        <div id="macroBreakdown"></div>
+                        <p style="margin-top: 16px; font-size: 14px; opacity: 0.9;">
+                            <strong>Note:</strong> Start with these targets and adjust based on ketone levels, energy, and progress. Individual responses vary significantly.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="calculator">
+                    <h3>Ketone Level Tracker</h3>
+                    <p>Track your ketone measurements over time:</p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 16px 0;">
+                        <div>
+                            <label>Date:</label>
+                            <input type="date" id="ketoneDate" class="calc-input">
+                        </div>
+                        <div>
+                            <label>Time:</label>
+                            <input type="time" id="ketoneTime" class="calc-input">
+                        </div>
+                        <div>
+                            <label>Ketone Level (mM):</label>
+                            <input type="number" id="ketoneLevel" class="calc-input" step="0.1" placeholder="0.0">
+                        </div>
+                    </div>
+                    
+                    <button onclick="addKetoneReading()" style="background: #38b2ac; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer;">Add Reading</button>
+                    
+                    <div id="ketoneHistory"></div>
+                    
+                    <div class="infographic" style="margin-top: 20px;">
+                        <h4>Ketone Level Interpretation</h4>
+                        <p><strong>0.0-0.5 mM:</strong> Not in ketosis</p>
+                        <p><strong>0.5-1.5 mM:</strong> Light nutritional ketosis</p>
+                        <p><strong>1.5-3.0 mM:</strong> Optimal ketosis range</p>
+                        <p><strong>3.0+ mM:</strong> High ketosis (monitor closely)</p>
+                        <p><em>Note: Individual optimal ranges vary</em></p>
+                    </div>
+                </div>
+                
+                <div class="calculator">
+                    <h3>Symptom Tracker</h3>
+                    <p>Monitor your adaptation progress:</p>
+                    
+                    <div style="margin: 16px 0;">
+                        <label>Date:</label>
+                        <input type="date" id="symptomDate" class="calc-input">
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <strong>Energy Level (1-10):</strong>
+                        <input type="range" id="energyLevel" min="1" max="10" value="5" oninput="updateSliderValue('energy', this.value)">
+                        <span id="energyValue">5</span>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <strong>Mental Clarity (1-10):</strong>
+                        <input type="range" id="clarityLevel" min="1" max="10" value="5" oninput="updateSliderValue('clarity', this.value)">
+                        <span id="clarityValue">5</span>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <strong>Appetite Level (1-10):</strong>
+                        <input type="range" id="appetiteLevel" min="1" max="10" value="5" oninput="updateSliderValue('appetite', this.value)">
+                        <span id="appetiteValue">5</span>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <strong>Current Symptoms:</strong>
+                        <div class="quiz-options" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                            <label><input type="checkbox" id="headache"> Headache</label>
+                            <label><input type="checkbox" id="fatigue"> Fatigue</label>
+                            <label><input type="checkbox" id="nausea"> Nausea</label>
+                            <label><input type="checkbox" id="irritability"> Irritability</label>
+                            <label><input type="checkbox" id="constipation"> Constipation</label>
+                            <label><input type="checkbox" id="badbreath"> Bad breath</label>
+                        </div>
+                    </div>
+                    
+                    <button onclick="addSymptomEntry()" style="background: #38b2ac; color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer;">Add Entry</button>
+                    
+                    <div id="symptomHistory"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evidence Module -->
+        <div class="module" id="evidence">
+            <div class="module-header">
+                <button class="bookmark-btn" onclick="toggleBookmark('evidence')">📌</button>
+                <h1 class="module-title">Evidence Review</h1>
+                <p class="module-subtitle">Research quality assessment by health outcome</p>
+            </div>
+            <div class="module-content">
+                <div class="infographic">
+                    <h3>Evidence Quality Legend</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; text-align: left;">
+                        <div>
+                            <span class="evidence-indicator evidence-high">High Evidence</span>
+                            <p>Multiple systematic reviews, large RCTs, consistent findings</p>
+                        </div>
+                        <div>
+                            <span class="evidence-indicator evidence-medium">Mixed Evidence</span>
+                            <p>Some studies, conflicting results, limited data</p>
+                        </div>
+                        <div>
+                            <span class="evidence-indicator evidence-low">Low Evidence</span>
+                            <p>Case studies, anecdotal reports, speculation</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="depth-controls">
+                    <button class="depth-btn active" onclick="setDepth('evidence', 'basic')">Summary</button>
+                    <button class="depth-btn" onclick="setDepth('evidence', 'detailed')">Study Details</button>
+                    <button class="depth-btn" onclick="setDepth('evidence', 'technical')">Research Data</button>
+                </div>
+                
+                <div class="depth-content active" id="evidence-basic">
+                    <h2>Epilepsy Treatment <span class="evidence-indicator evidence-high">High Evidence</span></h2>
+                    <p>The strongest evidence for ketogenic diets comes from epilepsy treatment, with over 100 years of clinical use and extensive research.</p>
+                    <ul>
+                        <li>50-80% reduction in seizures in treatment-resistant pediatric epilepsy</li>
+                        <li>Established medical therapy with clear protocols</li>
+                        <li>Multiple systematic reviews confirm efficacy</li>
+                    </ul>
+                    
+                    <h2>Short-term Weight Loss <span class="evidence-indicator evidence-high">High Evidence</span></h2>
+                    <p>Multiple studies demonstrate effective short-term weight loss compared to low-fat diets.</p>
+                    <ul>
+                        <li>Greater weight loss in first 6-12 months</li>
+                        <li>Improved body composition (fat loss, muscle preservation)</li>
+                        <li>Reduced hunger and improved satiety</li>
+                    </ul>
+                    
+                    <h2>Type 2 Diabetes Management <span class="evidence-indicator evidence-medium">Mixed Evidence</span></h2>
+                    <p>Promising short-term results, but long-term sustainability and safety unclear.</p>
+                    <ul>
+                        <li>Significant HbA1c reduction in 3-6 month studies</li>
+                        <li>Medication reduction often possible</li>
+                        <li>Long-term cardiovascular effects unknown</li>
+                    </ul>
+                    
+                    <h2>Athletic Performance <span class="evidence-indicator evidence-medium">Mixed Evidence</span></h2>
+                    <p>Highly individual responses, sport-specific considerations important.</p>
+                    <ul>
+                        <li>Endurance sports: Mixed results, some benefit possible</li>
+                        <li>High-intensity sports: Often decreased performance</li>
+                        <li>Strength training: Generally well-maintained</li>
+                    </ul>
+                    
+                    <h2>Cognitive Function <span class="evidence-indicator evidence-low">Low Evidence</span></h2>
+                    <p>Limited human studies, mostly animal research and anecdotal reports.</p>
+                    <ul>
+                        <li>Some neurological conditions show promise</li>
+                        <li>Healthy individuals: unclear cognitive benefits</li>
+                        <li>More research needed in this area</li>
+                    </ul>
+                    
+                    <h2>Long-term Health Effects <span class="evidence-indicator evidence-low">Low Evidence</span></h2>
+                    <p>Insufficient long-term data to assess safety and efficacy beyond 2 years.</p>
+                    <ul>
+                        <li>Most studies are short-term (≤12 months)</li>
+                        <li>Cardiovascular effects unclear</li>
+                        <li>Need for continued research and monitoring</li>
+                    </ul>
+                </div>
+                
+                <div class="depth-content" id="evidence-detailed">
+                    <h2>Key Research Findings</h2>
+                    
+                    <h3>Weight Loss Studies</h3>
+                    <p><strong>Bueno et al. (2013) - Systematic Review</strong></p>
+                    <ul>
+                        <li>13 studies, 1,415 participants</li>
+                        <li>Greater weight loss with ketogenic vs. low-fat diets</li>
+                        <li>Mean difference: -0.91 kg favoring ketogenic</li>
+                        <li>Also showed greater reduction in triglycerides and blood pressure</li>
+                    </ul>
+                    
+                    <p><strong>Mansoor et al. (2016) - Meta-analysis</strong></p>
+                    <ul>
+                        <li>11 studies, 1,369 participants</li>
+                        <li>Ketogenic diets associated with greater weight loss</li>
+                        <li>Effect most pronounced in first 6 months</li>
+                        <li>Long-term adherence challenges noted</li>
+                    </ul>
+                    
+                    <h3>Diabetes Management</h3>
+                    <p><strong>Virta Health Study (2018)</strong></p>
+                    <ul>
+                        <li>262 adults with type 2 diabetes</li>
+                        <li>1-year continuous care intervention</li>
+                        <li>HbA1c reduction: 1.3% average</li>
+                        <li>87% reduced or eliminated diabetes medications</li>
+                        <li>12% weight loss average</li>
+                    </ul>
+                    
+                    <h3>Cardiovascular Effects</h3>
+                    <p><strong>Mixed findings across studies:</strong></p>
+                    <ul>
+                        <li>Triglycerides: Consistently improved</li>
+                        <li>HDL cholesterol: Generally increased</li>
+                        <li>LDL cholesterol: Highly variable response</li>
+                        <li>Blood pressure: Often reduced</li>
+                        <li>Individual genetic factors influence lipid response</li>
+                    </ul>
+                    
+                    <h3>Athletic Performance Research</h3>
+                    <p><strong>Burke et al. (2017) - Elite Race Walkers</strong></p>
+                    <ul>
+                        <li>21 elite athletes, 3-week intervention</li>
+                        <li>Increased fat oxidation rates</li>
+                        <li>Decreased exercise economy (more oxygen needed)</li>
+                        <li>Performance times unchanged but efficiency reduced</li>
+                    </ul>
+                    
+                    <p><strong>McSwiney et al. (2018) - Endurance Athletes</strong></p>
+                    <ul>
+                        <li>12-week ketogenic adaptation in trained athletes</li>
+                        <li>Body composition improved</li>
+                        <li>Submaximal performance maintained</li>
+                        <li>High-intensity performance decreased</li>
+                    </ul>
+                </div>
+                
+                <div class="depth-content" id="evidence-technical">
+                    <h2>Research Methodology Assessment</h2>
+                    
+                    <h3>Study Quality Limitations</h3>
+                    <p><strong>Common methodological issues:</strong></p>
+                    <ul>
+                        <li><strong>Blinding difficulties:</strong> Hard to blind dietary interventions</li>
+                        <li><strong>Adherence challenges:</strong> High dropout rates in longer studies</li>
+                        <li><strong>Control group selection:</strong> Various comparison diets used</li>
+                        <li><strong>Duration limitations:</strong> Most studies <12 months</li>
+                        <li><strong>Population specificity:</strong> Results may not generalize</li>
+                    </ul>
+                    
+                    <h3>Meta-Analysis Findings</h3>
+                    <p><strong>Weight Loss (Cochrane Review 2022):</strong></p>
+                    <ul>
+                        <li>61 RCTs, 6,925 participants</li>
+                        <li>Low-certainty evidence for greater weight loss</li>
+                        <li>Effect size diminishes over time</li>
+                        <li>High heterogeneity between studies</li>
+                    </ul>
+                    
+                    <p><strong>Cardiovascular Risk Factors:</strong></p>
+                    <ul>
+                        <li>Triglycerides: Mean difference -0.18 mmol/L (95% CI: -0.27 to -0.08)</li>
+                        <li>HDL-C: Mean difference +0.09 mmol/L (95% CI: 0.06 to 0.12)</li>
+                        <li>LDL-C: Mean difference +0.16 mmol/L (95% CI: 0.003 to 0.33)</li>
+                        <li>Systolic BP: Mean difference -3.1 mmHg (95% CI: -5.7 to -0.4)</li>
+                    </ul>
+                    
+                    <h3>Individual Response Predictors</h3>
+                    <p><strong>Genetic factors influencing outcomes:</strong></p>
+                    <ul>
+                        <li><strong>APOE genotype:</strong> E4 carriers may have adverse lipid response</li>
+                        <li><strong>PPAR-α variants:</strong> Affect fat oxidation capacity</li>
+                        <li><strong>CPT1A polymorphisms:</strong> Influence ketone production</li>
+                        <li><strong>ADIPOQ variants:</strong> Impact metabolic flexibility</li>
+                    </ul>
+                    
+                    <h3>Research Gaps</h3>
+                    <p><strong>Areas needing more investigation:</strong></p>
+                    <ul>
+                        <li>Long-term safety data (&gt;2 years)</li>
+                        <li>Pediatric applications beyond epilepsy</li>
+                        <li>Optimal implementation protocols</li>
+                        <li>Personalization based on genetic/metabolic factors</li>
+                        <li>Interaction with medications and supplements</li>
+                        <li>Environmental and sustainability considerations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State management
+        let appState = {
+            bookmarks: [],
+            currentDepth: {},
+            userProfile: {},
+            ketoneReadings: [],
+            symptomEntries: []
+        };
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            loadState();
+            updateProgress();
+            initializeDepths();
+            initializeDarkMode();
+        });
+
+        // Dark mode functions
+        function initializeDarkMode() {
+            const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (savedDarkMode) {
+                document.body.classList.add('dark');
+                updateDarkModeToggle(true);
+            }
+        }
+
+        function toggleDarkMode() {
+            const isDark = document.body.classList.toggle('dark');
+            localStorage.setItem('darkMode', isDark);
+            updateDarkModeToggle(isDark);
+        }
+
+        function updateDarkModeToggle(isDark) {
+            const icon = document.getElementById('darkModeIcon');
+            const text = document.getElementById('darkModeText');
+            
+            if (isDark) {
+                icon.textContent = '☀️';
+                text.textContent = 'Light Mode';
+            } else {
+                icon.textContent = '🌙';
+                text.textContent = 'Dark Mode';
+            }
+        }
+
+        // State management functions
+        function saveState() {
+            const urlParams = new URLSearchParams();
+            urlParams.set('bookmarks', JSON.stringify(appState.bookmarks));
+            urlParams.set('depths', JSON.stringify(appState.currentDepth));
+            urlParams.set('profile', JSON.stringify(appState.userProfile));
+            
+            // Update URL without page reload
+            const newUrl = window.location.pathname + '?' + urlParams.toString();
+            window.history.replaceState({}, '', newUrl);
+            
+            // Also save to memory for session persistence
+            sessionStorage.setItem('ketoAppState', JSON.stringify(appState));
+        }
+
+        function loadState() {
+            // Try to load from URL first, then sessionStorage
+            const urlParams = new URLSearchParams(window.location.search);
+            const savedState = sessionStorage.getItem('ketoAppState');
+            
+            if (urlParams.has('bookmarks')) {
+                try {
+                    appState.bookmarks = JSON.parse(urlParams.get('bookmarks'));
+                    appState.currentDepth = JSON.parse(urlParams.get('depths') || '{}');
+                    appState.userProfile = JSON.parse(urlParams.get('profile') || '{}');
+                } catch (e) {
+                    console.log('Error loading URL state:', e);
+                }
+            } else if (savedState) {
+                try {
+                    appState = JSON.parse(savedState);
+                } catch (e) {
+                    console.log('Error loading saved state:', e);
+                }
+            }
+            
+            // Restore UI state
+            updateBookmarksList();
+            restoreDepthSettings();
+        }
+
+        function initializeDepths() {
+            // Set default depth for each module
+            const modules = ['overview', 'science', 'safety', 'implementation', 'evidence'];
+            modules.forEach(module => {
+                if (!appState.currentDepth[module]) {
+                    appState.currentDepth[module] = 'basic';
+                }
+            });
+        }
+
+        function restoreDepthSettings() {
+            Object.keys(appState.currentDepth).forEach(module => {
+                const depth = appState.currentDepth[module];
+                setDepth(module, depth, false);
+            });
+        }
+
+        // Navigation functions
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        function scrollToModule(moduleId) {
+            const module = document.getElementById(moduleId);
+            if (module) {
+                module.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                toggleSidebar(); // Close sidebar on mobile
+            }
+        }
+
+        // Progress tracking
+        function updateProgress() {
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const maxHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = (scrolled / maxHeight) * 100;
+                document.getElementById('progressBar').style.width = progress + '%';
+            });
+        }
+
+        // Bookmark management
+        function toggleBookmark(moduleId) {
+            const index = appState.bookmarks.indexOf(moduleId);
+            const btn = document.querySelector(`#${moduleId} .bookmark-btn`);
+            
+            if (index === -1) {
+                appState.bookmarks.push(moduleId);
+                btn.classList.add('active');
+            } else {
+                appState.bookmarks.splice(index, 1);
+                btn.classList.remove('active');
+            }
+            
+            updateBookmarksList();
+            saveState();
+        }
+
+        function updateBookmarksList() {
+            const bookmarksList = document.getElementById('bookmarksList');
+            bookmarksList.innerHTML = '';
+            
+            if (appState.bookmarks.length === 0) {
+                bookmarksList.innerHTML = '<p style="color: #666; font-style: italic;">No bookmarks yet</p>';
+                return;
+            }
+            
+            const moduleNames = {
+                overview: '📋 Overview',
+                science: '🧬 Science',
+                safety: '⚠️ Safety',
+                implementation: '🎯 Implementation',
+                calculator: '🧮 Calculator',
+                evidence: '📊 Evidence'
+            };
+            
+            appState.bookmarks.forEach(moduleId => {
+                const bookmarkItem = document.createElement('div');
+                bookmarkItem.className = 'bookmark-item';
+                bookmarkItem.innerHTML = `
+                    <span>${moduleNames[moduleId] || moduleId}</span>
+                    <button onclick="removeBookmark('${moduleId}')" style="background: none; border: none; color: #666; cursor: pointer;">×</button>
+                `;
+                bookmarkItem.onclick = () => scrollToModule(moduleId);
+                bookmarksList.appendChild(bookmarkItem);
+            });
+            
+            // Update bookmark button states
+            Object.keys(moduleNames).forEach(moduleId => {
+                const btn = document.querySelector(`#${moduleId} .bookmark-btn`);
+                if (btn) {
+                    if (appState.bookmarks.includes(moduleId)) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                }
+            });
+        }
+
+        function removeBookmark(moduleId) {
+            const index = appState.bookmarks.indexOf(moduleId);
+            if (index !== -1) {
+                appState.bookmarks.splice(index, 1);
+                updateBookmarksList();
+                saveState();
+            }
+        }
+
+        // Depth control functions
+        function setDepth(module, depth, save = true) {
+            // Hide all depth content for this module
+            const allContent = document.querySelectorAll(`#${module} .depth-content`);
+            allContent.forEach(content => content.classList.remove('active'));
+            
+            // Show selected depth content
+            const selectedContent = document.getElementById(`${module}-${depth}`);
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
+            
+            // Update button states
+            const allButtons = document.querySelectorAll(`#${module} .depth-btn`);
+            allButtons.forEach(btn => btn.classList.remove('active'));
+            
+            const activeButton = document.querySelector(`#${module} .depth-btn[onclick*="${depth}"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+            
+            // Save state
+            if (save) {
+                appState.currentDepth[module] = depth;
+                saveState();
+            }
+        }
+
+        // Assessment functions
+        function selectOption(element) {
+            // Remove active class from siblings
+            const siblings = element.parentNode.querySelectorAll('.quiz-option');
+            siblings.forEach(sibling => sibling.classList.remove('selected'));
+            
+            // Add active class to selected option
+            element.classList.add('selected');
+        }
+
+        function generateRecommendation() {
+            const interests = document.querySelector('.quiz-option.selected')?.textContent || '';
+            const healthStatus = document.querySelectorAll('.quiz-option.selected')[1]?.textContent || '';
+            
+            let recommendation = '<h4>Personalized Reading Path:</h4>';
+            
+            if (interests.includes('Weight management')) {
+                recommendation += '<p><strong>Suggested modules:</strong> Overview → Safety → Implementation → Calculator</p>';
+                recommendation += '<p><strong>Focus areas:</strong> Short-term weight loss evidence, calorie vs. carb restriction mechanisms</p>';
+            } else if (interests.includes('Metabolic health')) {
+                recommendation += '<p><strong>Suggested modules:</strong> Overview → Science → Evidence → Safety</p>';
+                recommendation += '<p><strong>Focus areas:</strong> Insulin sensitivity research, diabetes management protocols</p>';
+            } else if (interests.includes('Athletic performance')) {
+                recommendation += '<p><strong>Suggested modules:</strong> Science → Evidence → Implementation</p>';
+                recommendation += '<p><strong>Focus areas:</strong> Exercise adaptation, targeted ketogenic protocols</p>';
+            } else if (interests.includes('Neurological')) {
+                recommendation += '<p><strong>Suggested modules:</strong> Science → Evidence → Safety</p>';
+                recommendation += '<p><strong>Focus areas:</strong> Epilepsy research, neuroprotective mechanisms</p>';
+            }
+            
+            if (healthStatus.includes('diabetes') || healthStatus.includes('chronic conditions')) {
+                recommendation += '<p><strong>⚠️ Important:</strong> Medical supervision is essential. Focus on Safety module first.</p>';
+            }
+            
+            document.getElementById('recommendation').innerHTML = recommendation;
+        }
+
+        // Unit system functions
+        function switchUnits() {
+            const unitSystem = document.getElementById('unitSystem').value;
+            const heightInputs = document.getElementById('heightInputs');
+            const weightInput = document.getElementById('weight');
+            
+            if (unitSystem === 'imperial') {
+                heightInputs.innerHTML = `
+                    <label>Height:</label>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="number" id="heightFeet" class="calc-input" placeholder="feet" style="flex: 1;">
+                        <input type="number" id="heightInches" class="calc-input" placeholder="inches" style="flex: 1;">
+                    </div>
+                `;
+                weightInput.placeholder = 'pounds';
+            } else {
+                heightInputs.innerHTML = `
+                    <label>Height:</label>
+                    <input type="number" id="heightCm" class="calc-input" placeholder="cm">
+                `;
+                weightInput.placeholder = 'kg';
+            }
+            
+            // Clear existing values when switching
+            weightInput.value = '';
+        }
+
+        // Calculator functions
+        function calculateMacros() {
+            const age = parseInt(document.getElementById('age').value);
+            const sex = document.getElementById('sex').value;
+            const activity = parseFloat(document.getElementById('activity').value);
+            const goal = document.getElementById('goal').value;
+            const unitSystem = document.getElementById('unitSystem').value;
+            
+            let height, weight;
+            
+            // Get height and weight based on unit system
+            if (unitSystem === 'imperial') {
+                const feet = parseInt(document.getElementById('heightFeet').value);
+                const inches = parseInt(document.getElementById('heightInches').value);
+                weight = parseFloat(document.getElementById('weight').value);
+                
+                if (!feet || !inches || !weight) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+                
+                // Convert to metric for calculation
+                height = (feet * 12 + inches) * 2.54; // Convert to cm
+                weight = weight * 0.453592; // Convert to kg
+            } else {
+                height = parseInt(document.getElementById('heightCm').value);
+                weight = parseFloat(document.getElementById('weight').value);
+                
+                if (!height || !weight) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+            }
+            
+            if (!age) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Calculate BMR using Mifflin-St Jeor equation
+            let bmr;
+            if (sex === 'male') {
+                bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+            } else {
+                bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+            }
+            
+            // Calculate TDEE
+            const tdee = bmr * activity;
+            
+            // Adjust for goal
+            let calories;
+            if (goal === 'lose') {
+                calories = tdee * 0.8; // 20% deficit
+            } else if (goal === 'gain') {
+                calories = tdee * 1.1; // 10% surplus
+            } else {
+                calories = tdee;
+            }
+            
+            // Calculate ketogenic macros
+            const protein = weight * 1.2; // 1.2g per kg body weight (converted back to metric for calculation)
+            const proteinCals = protein * 4;
+            const carbs = 20; // Fixed at 20g
+            const carbCals = carbs * 4;
+            const fatCals = calories - proteinCals - carbCals;
+            const fat = fatCals / 9;
+            
+            // Display units
+            const weightUnit = unitSystem === 'imperial' ? 'lbs' : 'kg';
+            const displayWeight = unitSystem === 'imperial' ? (weight / 0.453592).toFixed(1) : weight.toFixed(1);
+            
+            const results = `
+                <div style="margin-bottom: 16px;">
+                    <strong>For ${displayWeight} ${weightUnit}, ${age} years old, ${sex}, ${document.getElementById('activity').options[document.getElementById('activity').selectedIndex].text.toLowerCase()}</strong>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; text-align: center;">
+                    <div>
+                        <h5>Carbohydrates</h5>
+                        <p><strong>${carbs}g</strong></p>
+                        <p>${Math.round((carbCals/calories)*100)}% of calories</p>
+                    </div>
+                    <div>
+                        <h5>Protein</h5>
+                        <p><strong>${Math.round(protein)}g</strong></p>
+                        <p>${Math.round((proteinCals/calories)*100)}% of calories</p>
+                    </div>
+                    <div>
+                        <h5>Fat</h5>
+                        <p><strong>${Math.round(fat)}g</strong></p>
+                        <p>${Math.round((fatCals/calories)*100)}% of calories</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e2e8f0;">
+                    <strong>Total Daily Calories: ${Math.round(calories)}</strong>
+                    <br>
+                    <small style="color: #666; margin-top: 8px; display: block;">
+                        BMR: ${Math.round(bmr)} calories | TDEE: ${Math.round(tdee)} calories
+                    </small>
+                </div>
+            `;
+            
+            document.getElementById('macroBreakdown').innerHTML = results;
+            document.getElementById('macroResults').style.display = 'block';
+            
+            // Save to user profile (convert back to original units for storage)
+            appState.userProfile.macros = {
+                calories: Math.round(calories),
+                carbs: carbs,
+                protein: Math.round(protein),
+                fat: Math.round(fat),
+                bmr: Math.round(bmr),
+                tdee: Math.round(tdee)
+            };
+            saveState();
+        }
+
+        function addKetoneReading() {
+            const date = document.getElementById('ketoneDate').value;
+            const time = document.getElementById('ketoneTime').value;
+            const level = parseFloat(document.getElementById('ketoneLevel').value);
+            
+            if (!date || !time || isNaN(level)) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            const reading = {
+                datetime: `${date} ${time}`,
+                level: level,
+                timestamp: new Date(`${date} ${time}`).getTime()
+            };
+            
+            appState.ketoneReadings.push(reading);
+            appState.ketoneReadings.sort((a, b) => b.timestamp - a.timestamp);
+            
+            updateKetoneHistory();
+            
+            // Clear form
+            document.getElementById('ketoneLevel').value = '';
+            document.getElementById('ketoneTime').value = '';
+        }
+
+        function updateKetoneHistory() {
+            const history = document.getElementById('ketoneHistory');
+            
+            if (appState.ketoneReadings.length === 0) {
+                history.innerHTML = '<p style="margin-top: 16px; color: #666;">No readings yet</p>';
+                return;
+            }
+            
+            let historyHTML = '<h4 style="margin-top: 20px;">Recent Readings:</h4>';
+            const recent = appState.ketoneReadings.slice(0, 10);
+            
+            recent.forEach(reading => {
+                let levelColor = '#666';
+                let levelText = 'Not in ketosis';
+                
+                if (reading.level >= 0.5 && reading.level < 1.5) {
+                    levelColor = '#d69e2e';
+                    levelText = 'Light ketosis';
+                } else if (reading.level >= 1.5 && reading.level <= 3.0) {
+                    levelColor = '#38a169';
+                    levelText = 'Optimal ketosis';
+                } else if (reading.level > 3.0) {
+                    levelColor = '#e53e3e';
+                    levelText = 'High ketosis';
+                }
+                
+                historyHTML += `
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px; margin: 4px 0; background: #f8fafc; border-radius: 4px;">
+                        <span>${reading.datetime}</span>
+                        <span style="color: ${levelColor}; font-weight: 500;">
+                            ${reading.level} mM - ${levelText}
+                        </span>
+                    </div>
+                `;
+            });
+            
+            history.innerHTML = historyHTML;
+        }
+
+        function updateSliderValue(type, value) {
+            document.getElementById(type + 'Value').textContent = value;
+        }
+
+        function addSymptomEntry() {
+            const date = document.getElementById('symptomDate').value;
+            const energy = document.getElementById('energyLevel').value;
+            const clarity = document.getElementById('clarityLevel').value;
+            const appetite = document.getElementById('appetiteLevel').value;
+            
+            if (!date) {
+                alert('Please select a date');
+                return;
+            }
+            
+            const symptoms = [];
+            const checkboxes = ['headache', 'fatigue', 'nausea', 'irritability', 'constipation', 'badbreath'];
+            checkboxes.forEach(symptom => {
+                if (document.getElementById(symptom).checked) {
+                    symptoms.push(symptom);
+                }
+            });
+            
+            const entry = {
+                date: date,
+                energy: parseInt(energy),
+                clarity: parseInt(clarity),
+                appetite: parseInt(appetite),
+                symptoms: symptoms,
+                timestamp: new Date(date).getTime()
+            };
+            
+            appState.symptomEntries.push(entry);
+            appState.symptomEntries.sort((a, b) => b.timestamp - a.timestamp);
+            
+            updateSymptomHistory();
+            
+            // Reset form
+            checkboxes.forEach(symptom => {
+                document.getElementById(symptom).checked = false;
+            });
+        }
+
+        function updateSymptomHistory() {
+            const history = document.getElementById('symptomHistory');
+            
+            if (appState.symptomEntries.length === 0) {
+                history.innerHTML = '<p style="margin-top: 16px; color: #666;">No entries yet</p>';
+                return;
+            }
+            
+            let historyHTML = '<h4 style="margin-top: 20px;">Recent Entries:</h4>';
+            const recent = appState.symptomEntries.slice(0, 5);
+            
+            recent.forEach(entry => {
+                historyHTML += `
+                    <div style="padding: 12px; margin: 8px 0; background: #f8fafc; border-radius: 6px;">
+                        <div style="font-weight: 500; margin-bottom: 8px;">${entry.date}</div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; font-size: 14px;">
+                            <span>Energy: ${entry.energy}/10</span>
+                            <span>Clarity: ${entry.clarity}/10</span>
+                            <span>Appetite: ${entry.appetite}/10</span>
+                        </div>
+                        ${entry.symptoms.length > 0 ? 
+                            `<div style="margin-top: 8px; font-size: 14px;">
+                                <strong>Symptoms:</strong> ${entry.symptoms.join(', ')}
+                            </div>` : ''
+                        }
+                    </div>
+                `;
+            });
+            
+            history.innerHTML = historyHTML;
+        }
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuBtn = document.querySelector('.nav-menu');
+            const bookmarkBtn = document.querySelector('.bookmarks-toggle');
+            
+            if (!sidebar.contains(event.target) && 
+                !menuBtn.contains(event.target) && 
+                !bookmarkBtn.contains(event.target)) {
+                sidebar.classList.remove('open');
+            }
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey || event.metaKey) {
+                switch(event.key) {
+                    case 'b':
+                        event.preventDefault();
+                        toggleSidebar();
+                        break;
+                    case '1':
+                        event.preventDefault();
+                        scrollToModule('overview');
+                        break;
+                    case '2':
+                        event.preventDefault();
+                        scrollToModule('science');
+                        break;
+                    case '3':
+                        event.preventDefault();
+                        scrollToModule('safety');
+                        break;
+                    case '4':
+                        event.preventDefault();
+                        scrollToModule('implementation');
+                        break;
+                    case '5':
+                        event.preventDefault();
+                        scrollToModule('calculator');
+                        break;
+                    case '6':
+                        event.preventDefault();
+                        scrollToModule('evidence');
+                        break;
+                }
+            }
+        });
+
+        // Auto-save on page unload
+        window.addEventListener('beforeunload', function() {
+            saveState();
+        });
+
+        // Set today's date as default for trackers
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('ketoneDate').value = today;
+            document.getElementById('symptomDate').value = today;
+        });
+    </script>
+</body>
+</html>
