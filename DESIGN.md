@@ -43,13 +43,14 @@ appState = {
   userProfile: {},         // Calculator settings & results
   ketoneReadings: [],      // Tracking data arrays
   symptomEntries: [],      // 
-  calculatorProfiles: []   // Saved configurations
+  calculatorProfiles: [],  // Saved configurations
+  transitionPlan: null     // Start Here plan settings + repeated weeks
 }
 ```
 
 **Design Decision**: Hybrid URL + localStorage approach
 - **URL handles**: Bookmarks, depth settings, user profile (shareable state)
-- **localStorage handles**: Tracking data, saved profiles (persistent but private)
+- **localStorage handles**: Tracking data, saved profiles, the transition plan (persistent but private)
 - **sessionStorage**: Backup/fallback layer
 
 ## Information Architecture
@@ -79,9 +80,14 @@ Technical → "β-oxidation → acetyl-CoA → HMG-CoA synthase → acetoacetate
 
 **Decision**: Visual indicators over academic citation format for broader accessibility
 
+The label text inside an indicator varies with what is being said. Under `.evidence-low`, the
+Start Here module uses "No Trial Evidence", "Expert Practice" and "Practice-Based" so that a
+tactic or a clinician habit is never dressed as a research finding.
+
 ### Content Organization Principles
 
 #### Progressive Disclosure Hierarchy
+0. **Start Here**: The reader's own transition plan and today's one action
 1. **Overview**: Essential concepts, safety warnings, personal relevance
 2. **Foundation**: Core science, basic implementation, evidence quality
 3. **Implementation**: Detailed protocols, monitoring, troubleshooting
@@ -146,7 +152,10 @@ Mobile Layout:
 ```javascript
 // Tracking data: localStorage only (private, persistent)
 ketoneReadings: [{datetime, level, timestamp}]
-symptomEntries: [{date, energy, clarity, appetite, symptoms}]
+symptomEntries: [{date, energy, clarity, appetite, cravings?, symptoms}]
+
+// Transition plan: localStorage + JSON export only (private; never in the URL)
+transitionPlan: {path, pace, startDate, startCarbs, targetCarbs, targetFastHours, lastMeal, holds}
 
 // User preferences: URL + localStorage (shareable + persistent)  
 bookmarks: ['module-id-1', 'module-id-2']
@@ -192,8 +201,59 @@ calculateMacros() {
 **Rejected Approaches**:
 - ❌ Gamification elements (streaks, badges, points)
 - ❌ Social sharing/comparison features  
-- ❌ Automated coaching or recommendations
+- ❌ Automated coaching that changes targets or advice on its own. The transition plan below is
+  a fixed schedule built from the reader's own settings; only the reader advances or repeats it.
 - ❌ Integration with fitness trackers or external APIs
+
+### Transition Plan (Start Here module)
+**"One change a week, and the week can repeat"**
+
+The first module turns the explainer into something to act on: a week-by-week schedule from a
+high-carb diet to a chosen landing, with a Today card that leads with this week's one action.
+
+```
+Paths    carbs (step-down) | fasting (window ladder) | both (carbs first, then fasting)
+Paces    gentle (default)  | standard (twice as fast)
+
+carbs    250 → 215 → 185 → 150 → 115 → 85 → 50 g   one behaviour change per week
+fasting  12 → 13 → 14 → 15 → 16 h                  last meal fixed, first meal moves later
+both     carb weeks on a 12 h overnight baseline, then the fasting ladder at the carb landing
+
+Today card   before start: countdown + week 1 preview
+             active:       week N of M, the one change, targets, log count, repeat rule, next step
+             landed:       final targets, hold
+```
+
+**Design Decisions** (each with what would re-open it):
+- **Start Here sits above Overview.** A reader mid-diet returns for today's action, so it comes
+  first. Re-open if new visitors should meet the explainer first: move the module block below
+  Overview and update the order asserted in `tests/page-structure.test.mjs`.
+- **Gentle pace is the default.** A hard transition is the assumed case: six carb weeks, one
+  hour of fasting added per week. Re-open if six-plus weeks proves too slow to hold.
+- **Default landing is 50 g net carbs ("pseudo-keto").** It sits on the boundary of the
+  ketogenic range; 100 g (low-carb) and 20-30 g (strict) are named alternatives. Re-open if
+  "pseudo-keto" should mean a looser band such as 75-100 g: change `DEFAULT_PLAN.targetCarbs`.
+- **Never two changes in one week.** The "both" path finishes the carb step-down before
+  lengthening the fast. The order is a judgment (appetite tends not to rise in ketosis) and is
+  untested; the module says so.
+- **A rough week repeats instead of failing.** Three rough days (energy 3 or lower, cravings 8
+  or higher, or three symptoms) is the stated signal. The card shows the reader's own counts and
+  the reader presses Repeat; the plan never moves on its own. Thresholds are a starting rule:
+  `ROUGH_DAY` and `ROUGH_DAYS_TO_REPEAT_WEEK` in `plan-core`.
+- **No streaks; a slip resets nothing.** Position comes from the calendar and the start date,
+  so there is nothing to break.
+- **The last meal is the fixed anchor.** Dinner is the socially fixed meal, so a longer fast
+  moves the first meal later. An early eating window needs no code: set an earlier last meal.
+- **Carb ceilings are a guide, the weekly behaviour change is the lever.** Counting is optional.
+- **Editing settings keeps repeated weeks only when the list of steps is unchanged.** Repeats
+  are stored as step indexes, which lose their meaning if path, pace or targets change.
+- **The symptom log carries cravings, muscle cramps and dizziness** because they feed the rough
+  day rule and the rough-moment playbook. Entries saved without cravings stay valid.
+- **Health numbers in this module are sourced and labelled, and gaps are stated.** No trial
+  compares gradual with abrupt carb reduction; electrolyte figures are clinician practice above
+  the US sodium limit; fasting windows show small weight effects. The Why & Evidence layer says
+  each of these plainly rather than implying support that does not exist.
+- **New controls use `#2c7a7b` with white text** (5.0:1) so the 4.5:1 contrast rule holds.
 
 ## Technical Implementation Patterns
 
@@ -238,6 +298,33 @@ try {
   showDataMessage('Storage full. Export data to free space.', 'error');
 }
 ```
+
+### Script Layout and Tests
+The single-file rule holds. Inside the file, scripts are split by block so the parts with no
+browser dependency can be loaded and tested by node directly.
+
+```
+<script id="plan-core">  PlanCore: schedule, dates, eating-window clock, rough-week rule,
+                         plan validation. No DOM, no storage, no clock.
+<script id="plan-view">  PlanView: HTML strings for the Today card and schedule. No DOM.
+<script id="app">        State, persistence, handlers; thin glue over the two blocks above.
+```
+
+```
+node --test tests/*.test.mjs        # no dependencies; Node's built-in runner
+
+tests/plan-schedule, plan-day, plan-today   PlanCore behaviour
+tests/plan-view                             what the Today card and schedule say
+tests/app-wiring                            the real app script against a fake DOM
+tests/page-structure                        module order, depth panels, handlers and ids
+                                            resolve, pure blocks stay pure, no network loads
+
+node scripts/render-snapshots.mjs   # PNGs of each plan state via macOS Quick Look
+```
+
+**Decision**: a fake DOM and Quick Look snapshots instead of a headless browser, because the
+project takes no dependencies. Limits: the fake DOM does not lay anything out, and Quick Look
+renders at desktop width only, so the mobile layout is checked by hand.
 
 ### Accessibility Implementation
 - **Semantic HTML**: Proper heading hierarchy, form labels, ARIA attributes

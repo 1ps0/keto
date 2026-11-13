@@ -784,6 +784,283 @@
             border-top-color: #4a5568;
         }
 
+        .plan-today {
+            border: 2px solid #38b2ac;
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin: 0 0 24px 0;
+            background: #f0fdfa;
+            transition: background-color 0.3s ease;
+        }
+
+        body.dark .plan-today {
+            background: rgba(56, 178, 172, 0.1);
+        }
+
+        .plan-today-empty {
+            border-style: dashed;
+        }
+
+        .plan-kicker {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            opacity: 0.8;
+            margin: 0 0 8px 0;
+        }
+
+        .plan-lead {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .plan-steps {
+            display: flex;
+            gap: 4px;
+            margin: 0 0 16px 0;
+        }
+
+        .plan-step {
+            flex: 1;
+            height: 6px;
+            border-radius: 3px;
+            background: #cbd5e0;
+        }
+
+        body.dark .plan-step {
+            background: #4a5568;
+        }
+
+        .plan-step.plan-step-done,
+        body.dark .plan-step.plan-step-done {
+            background: #38b2ac;
+        }
+
+        .plan-step.plan-step-current {
+            background: #1a365d;
+        }
+
+        body.dark .plan-step.plan-step-current {
+            background: #e2e8f0;
+        }
+
+        .plan-label {
+            font-size: 13px;
+            font-weight: 600;
+            opacity: 0.75;
+            margin: 12px 0 4px 0;
+        }
+
+        .plan-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            background: #fef5e7;
+            color: #c05621;
+            margin-right: 6px;
+        }
+
+        body.dark .plan-badge {
+            background: rgba(192, 86, 33, 0.3);
+            color: #fbb040;
+        }
+
+        .plan-focus {
+            margin: 4px 0 12px 0;
+        }
+
+        .plan-focus strong {
+            display: block;
+            font-size: 22px;
+            line-height: 1.3;
+        }
+
+        .plan-focus span {
+            display: block;
+            margin-top: 2px;
+        }
+
+        .plan-targets {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .plan-targets > div {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body.dark .plan-targets > div {
+            background: #2d3748;
+            border-color: #4a5568;
+        }
+
+        .plan-targets dt {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .plan-targets dd {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .plan-targets dd small {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            opacity: 0.75;
+        }
+
+        .plan-floor,
+        .plan-log,
+        .plan-rule,
+        .plan-next {
+            font-size: 14px;
+            margin: 8px 0;
+        }
+
+        .plan-rule-hit {
+            background: #fef5e7;
+            border-left: 4px solid #d69e2e;
+            padding: 10px 12px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        body.dark .plan-rule-hit {
+            background: rgba(214, 158, 46, 0.15);
+            color: #fbb040;
+        }
+
+        .plan-next {
+            border-top: 1px solid #b2f5ea;
+            padding-top: 12px;
+            margin-top: 12px;
+        }
+
+        body.dark .plan-next {
+            border-top-color: #4a5568;
+        }
+
+        .plan-prep {
+            margin: 4px 0 12px 0;
+        }
+
+        .plan-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0;
+        }
+
+        .plan-btn {
+            background: #2c7a7b;
+            color: white;
+            border: 1px solid #2c7a7b;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: background 0.2s;
+        }
+
+        .plan-btn:hover {
+            background: #285e61;
+        }
+
+        .plan-btn-secondary {
+            background: transparent;
+            color: inherit;
+            border-color: #a0aec0;
+        }
+
+        .plan-btn-secondary:hover {
+            background: rgba(160, 174, 192, 0.2);
+        }
+
+        .plan-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 16px;
+            margin: 8px 0;
+        }
+
+        .plan-hint {
+            font-size: 13px;
+            opacity: 0.75;
+            margin: 0 0 8px 0;
+        }
+
+        .plan-link {
+            color: inherit;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .info-table-wrap {
+            overflow-x: auto;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 24px 0;
+            font-size: 15px;
+        }
+
+        .info-table th,
+        .info-table td {
+            text-align: left;
+            padding: 8px 10px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        body.dark .info-table th,
+        body.dark .info-table td {
+            border-bottom-color: #4a5568;
+        }
+
+        .info-table th {
+            font-size: 13px;
+            opacity: 0.75;
+        }
+
+        .info-table th,
+        .info-table td.nowrap {
+            white-space: nowrap;
+        }
+
+        .info-table tr.current {
+            background: rgba(56, 178, 172, 0.18);
+            font-weight: 600;
+        }
+
+        .info-table tr.done {
+            opacity: 0.55;
+        }
+
+        #symptomTracker {
+            scroll-margin-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            .plan-today {
+                padding: 16px;
+            }
+
+            .plan-form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .tracker-header {
                 flex-direction: column;
@@ -859,6 +1136,7 @@
         </div>
         
         <h3 style="margin-top: 32px;">Quick Navigation</h3>
+        <div class="bookmark-item" onclick="scrollToModule('start')">🧭 Start Here</div>
         <div class="bookmark-item" onclick="scrollToModule('overview')">📋 Overview & Assessment</div>
         <div class="bookmark-item" onclick="scrollToModule('science')">🧬 The Science</div>
         <div class="bookmark-item" onclick="scrollToModule('safety')">⚠️ Safety & Risks</div>
@@ -868,6 +1146,247 @@
     </div>
 
     <div class="main-content">
+        <!-- Start Module -->
+        <div class="module" id="start">
+            <div class="module-header">
+                <button class="bookmark-btn" onclick="toggleBookmark('start')">📌</button>
+                <h1 class="module-title">Start Here: Your Transition Plan</h1>
+                <p class="module-subtitle">One change a week, from a high-carb diet to low-carb, pseudo-keto, or a fasting window</p>
+            </div>
+            <div class="module-content">
+                <div id="planToday"></div>
+
+                <div class="warning-box">
+                    <h3>⚠️ Check before you start</h3>
+                    <p><strong>Talk to your prescriber first if you take:</strong></p>
+                    <ul>
+                        <li><strong>Insulin or a sulfonylurea.</strong> Doses usually need lowering from day one; low blood sugar is the immediate risk.</li>
+                        <li><strong>An SGLT2 inhibitor (a name ending in "-gliflozin").</strong> Low-carb eating and fasting raise the risk of ketoacidosis, and it can happen with normal glucose readings.</li>
+                        <li><strong>Blood-pressure tablets or diuretics.</strong> They may need reducing as you go.</li>
+                    </ul>
+                    <p><strong>Do not use a fasting window if you are</strong> pregnant or breastfeeding, a child or teenager, underweight, or have a history of an eating disorder.</p>
+                    <p><strong>Do not go low-carb or ketogenic without medical supervision if you have</strong> type 1 diabetes or severe kidney or liver disease. The full list is under <a class="plan-link" href="#safety" onclick="scrollToModule('safety'); return false;">Safety &amp; Risks</a>.</p>
+                </div>
+
+                <div class="calculator">
+                    <div class="tracker-header">
+                        <div>
+                            <h3>Build your plan</h3>
+                            <p>Pick a path and a pace. Edit and build again at any time.</p>
+                        </div>
+                        <div class="tracker-actions">
+                            <button onclick="clearPlan()" class="data-icon-btn danger" title="Clear plan">
+                                🗑️
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="plan-form-grid">
+                        <div>
+                            <label for="planPath">Path:</label>
+                            <select id="planPath" class="calc-input" onchange="updatePlanFormVisibility()">
+                                <option value="carbs">Cut carbs step by step</option>
+                                <option value="fasting">Fasting window only</option>
+                                <option value="both">Both: carbs first, then a fasting window</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="planPace">Pace:</label>
+                            <select id="planPace" class="calc-input">
+                                <option value="gentle">Gentle: one change a week</option>
+                                <option value="standard">Standard: twice as fast</option>
+                            </select>
+                            <p class="plan-hint">Gentle assumes the change will be hard.</p>
+                        </div>
+                        <div>
+                            <label for="planStartDate">Start date:</label>
+                            <input type="date" id="planStartDate" class="calc-input">
+                        </div>
+                    </div>
+
+                    <div class="plan-form-grid" id="planCarbFields">
+                        <div>
+                            <label for="planStartCarbs">Carbs you eat now (g a day, rough guess):</label>
+                            <input type="number" id="planStartCarbs" class="calc-input" min="20" max="600" step="10">
+                            <p class="plan-hint">Not sure? Leave it. It only sets the size of the weekly steps.</p>
+                        </div>
+                        <div>
+                            <label for="planTargetCarbs">Landing target (g net carbs a day):</label>
+                            <input type="number" id="planTargetCarbs" class="calc-input" min="20" max="600" step="5">
+                            <p class="plan-hint">100 = low-carb &middot; 50 = pseudo-keto &middot; 20&ndash;30 = strict keto</p>
+                        </div>
+                    </div>
+
+                    <div class="plan-form-grid" id="planFastFields">
+                        <div>
+                            <label for="planTargetFast">Fasting goal:</label>
+                            <select id="planTargetFast" class="calc-input">
+                                <option value="12">12 h overnight (12:12)</option>
+                                <option value="14">14 h fast, 10 h to eat (14:10)</option>
+                                <option value="16">16 h fast, 8 h to eat (16:8)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="planLastMeal">Last meal ends by:</label>
+                            <input type="time" id="planLastMeal" class="calc-input">
+                            <p class="plan-hint">This stays fixed. A longer fast moves your first meal later.</p>
+                        </div>
+                    </div>
+
+                    <button onclick="savePlanFromForm()" class="plan-btn">Build my plan</button>
+                    <div id="planMessage" class="data-message"></div>
+                </div>
+
+                <div id="planSchedule"></div>
+
+                <div class="depth-controls">
+                    <button class="depth-btn active" onclick="setDepth('start', 'basic')">Rough Moments</button>
+                    <button class="depth-btn" onclick="setDepth('start', 'detailed')">Swaps &amp; Fasting</button>
+                    <button class="depth-btn" onclick="setDepth('start', 'technical')">Why &amp; Evidence</button>
+                </div>
+
+                <div class="depth-content active" id="start-basic">
+                    <h2>When it gets hard</h2>
+                    <p>Expect it. In people's own reports, symptoms cluster in the first week and fade over the first month. <span class="evidence-indicator evidence-low">Low Evidence</span></p>
+
+                    <div class="info-table-wrap">
+                        <table class="info-table">
+                            <thead><tr>
+                                <th>What is happening</th>
+                                <th>Do this first</th>
+                                <th>If it keeps happening</th>
+                            </tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>A craving hits</strong></td>
+                                    <td>Eat protein or fat first (eggs, cheese, nuts, leftovers) and drink water. Decide about the carb after that.</td>
+                                    <td>Log it. Three rough days in a week means repeat the week.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Headache, lightheaded or wiped out</strong> in the first two weeks</td>
+                                    <td>Water, plus something salty such as a cup of broth or bouillon. Read the salt caution below first.</td>
+                                    <td>Still there after two weeks: stop stepping down and talk to a clinician.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Muscle cramps</strong></td>
+                                    <td>Fluids and salt first. Magnesium is the usual next step; amounts are under Implementation, Detailed Protocol.</td>
+                                    <td>Ask a pharmacist before supplementing if you have kidney disease or take heart or blood-pressure medication.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Hungry inside the fasting window</strong></td>
+                                    <td>Water, black coffee or plain tea.</td>
+                                    <td>Dizzy, shaky or unwell: eat. Use a shorter fast this week and repeat the week.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>You ate off-plan</strong></td>
+                                    <td>Nothing resets. The next meal is back on this week's change.</td>
+                                    <td>If the week was rough, repeat it. That is what the button is for.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="plan-hint">These are tactics from clinical practice, not trial results. <span class="evidence-indicator evidence-low">Practice-Based</span></p>
+
+                    <div class="warning-box">
+                        <strong>Salt caution:</strong> do not add salt, broth or potassium on your own if you have high blood pressure, heart failure or kidney disease, or take diuretics, ACE inhibitors, ARBs or spironolactone. Many salt substitutes are high in potassium and carry the same warning.
+                    </div>
+
+                    <div class="contraindication-box">
+                        <strong>Stop and get medical care for:</strong> persistent vomiting or abdominal pain, trouble breathing, or chest pain. On an SGLT2 inhibitor these can be ketoacidosis even when your glucose reads normal. The full red-flag list is under <a class="plan-link" href="#safety" onclick="scrollToModule('safety'); return false;">Safety &amp; Risks</a>, Clinical Data.
+                    </div>
+                </div>
+
+                <div class="depth-content" id="start-detailed">
+                    <h2>Carb swaps</h2>
+                    <p>One 12 fl oz cola is 38 g of carbohydrate: about three-quarters of a 50 g day. That is why drinks go first.</p>
+
+                    <div class="info-table-wrap">
+                        <table class="info-table">
+                            <thead><tr>
+                                <th>Usual</th>
+                                <th>Net carbs</th>
+                                <th>Swap</th>
+                                <th>Net carbs</th>
+                            </tr></thead>
+                            <tbody>
+                                <tr><td>Cola, 12 fl oz</td><td>38 g</td><td>Water, sparkling water, unsweetened tea or coffee</td><td>0 g</td></tr>
+                                <tr><td>Orange juice, 8 fl oz</td><td>25 g</td><td>Strawberries, 1 cup halves</td><td>9 g</td></tr>
+                                <tr><td>Cooked oatmeal, 1 cup</td><td>24 g</td><td>2 large eggs, or plain whole-milk Greek yogurt (170 g)</td><td>1 g, or 7 g</td></tr>
+                                <tr><td>Cooked white rice, 1 cup</td><td>44 g</td><td>Cauliflower, 1 cup chopped</td><td>3 g</td></tr>
+                                <tr><td>Cooked spaghetti, 1 cup</td><td>36 g</td><td>Zucchini, 1 cup sliced</td><td>2 g</td></tr>
+                                <tr><td>Baked potato with skin, medium</td><td>33 g</td><td>Broccoli, 1 cup chopped</td><td>4 g</td></tr>
+                                <tr><td>Banana, medium</td><td>24 g</td><td>Raspberries, 1 cup</td><td>7 g</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p><strong>Also worth knowing:</strong> white bread is 14 g a slice, a 7&ndash;8 inch flour tortilla 23 g, a regular 12 fl oz beer 13 g. Staples that barely count: a large egg under 1 g, half an avocado 2 g, 1 oz of almonds 3 g, 1 oz of cheddar 1 g.</p>
+                    <p class="plan-hint">Source: USDA FoodData Central (SR Legacy). Net carbs here are total carbohydrate minus fibre, rounded. Vegetables and fruit are raw weights; brands and portions vary.</p>
+
+                    <h2>How the fasting window works</h2>
+                    <ul>
+                        <li><strong>The fast runs from the end of your last meal.</strong> The plan keeps that time fixed and moves your first meal later.</li>
+                        <li><strong>During the fast:</strong> water, black coffee and plain tea. Trials disagree on diet soda: one allowed it, one did not.</li>
+                        <li><strong>First meal: protein first.</strong> About 25&ndash;30 g per meal, 1.2&ndash;1.6 g per kg of body weight across the day.</li>
+                        <li><strong>Unwell beats the clock.</strong> Dizzy or shaky means eat. A shorter fast still counts.</li>
+                    </ul>
+
+                    <h2>What "pseudo-keto" means here</h2>
+                    <ul>
+                        <li><strong>About 20&ndash;50 g a day:</strong> very low carb. This range often produces nutritional ketosis.</li>
+                        <li><strong>About 50&ndash;130 g a day:</strong> low carb, generally not ketogenic. In one three-week trial ketosis was sporadic at 25% of energy from carbohydrate and steady only at 5%. <span class="evidence-indicator evidence-medium">Mixed Evidence</span></li>
+                        <li><strong>The default landing of 50 g</strong> sits on that boundary: low enough for light ketosis some of the time, loose enough to hold.</li>
+                    </ul>
+                    <p>The Macro Calculator further down assumes strict keto (20 g). Use it once you choose to go below the pseudo-keto landing.</p>
+                </div>
+
+                <div class="depth-content" id="start-technical">
+                    <h2>What the plan rests on</h2>
+
+                    <h3>Stepping down gradually <span class="evidence-indicator evidence-low">No Trial Evidence</span></h3>
+                    <p>No trial comparing a gradual step-down with abrupt restriction in adults was found. The step-down is a tolerability choice, not a proven advantage.</p>
+                    <ul>
+                        <li><strong>Harvey (2019)</strong> - RCT, 77 healthy adults, 3 weeks at 5%, 15% or 25% of energy from carbohydrate. Overall symptom scores did not differ significantly between groups. Over 12 weeks the less strict targets were easier to hold; 39 of 77 finished.</li>
+                        <li>What this supports: a looser target is easier to keep. That is a different claim from "gradual is better".</li>
+                    </ul>
+
+                    <h3>Adaptation symptoms and timing <span class="evidence-indicator evidence-low">Low Evidence</span></h3>
+                    <ul>
+                        <li><strong>Bostock (2020)</strong> - analysis of forum posts, 101 users describing their own experience. Headache 25%, fatigue 18%, nausea 16%, dizziness 15%, brain fog 11%. Reports peaked in the first week and tailed off after four. Resolution timing rests on 8 users.</li>
+                        <li><strong>Skartun (2025)</strong> - scoping review, 89 studies. Symptoms typically begin within 2&ndash;3 days and mostly resolve within 2&ndash;4 weeks. The review notes how few good trials exist in healthy adults.</li>
+                    </ul>
+
+                    <h3>Salt, potassium, magnesium <span class="evidence-indicator evidence-low">Expert Practice</span></h3>
+                    <ul>
+                        <li>The usual figures (sodium 3&ndash;5 g, potassium 3&ndash;4 g, magnesium 300&ndash;500 mg a day) trace to one research group, Phinney and Volek, and their clinic. No dose-finding trial sits behind them.</li>
+                        <li>3&ndash;5 g of sodium is above the US federal limit of 2,300 mg a day. These are sodium figures, not salt: a teaspoon of table salt holds about 2,400 mg of sodium.</li>
+                        <li>Mechanism: insulin makes the kidney hold sodium (DeFronzo 1975, 6 subjects). That low insulin on a low-carb diet sheds sodium is an inference from that finding.</li>
+                    </ul>
+
+                    <h3>Fasting windows and weight <span class="evidence-indicator evidence-medium">Mixed Evidence</span></h3>
+                    <ul>
+                        <li><strong>Lowe (2020)</strong> - RCT, 116 adults, 12 weeks, eating noon to 8 pm. Lost 0.94 kg against 0.68 kg in controls; the difference was not significant. About 65% of the weight lost was lean mass by DXA, with protein intake unmeasured.</li>
+                        <li><strong>Liu (2022)</strong> - RCT, 139 adults with obesity, 12 months, an 8 am to 4 pm window plus calorie restriction against calorie restriction alone. 8.0 kg against 6.3 kg; not significant.</li>
+                        <li><strong>Semnani-Azad (2025)</strong> - network meta-analysis, 99 RCTs, 6,582 adults. Time-restricted eating against unrestricted eating: 1.7 kg more weight loss, rated trivial against a 2 kg threshold.</li>
+                        <li>Reading: a fasting window is a structure tool that removes eating occasions. It is not a metabolic shortcut.</li>
+                    </ul>
+
+                    <h3>Appetite, sleep and protein <span class="evidence-indicator evidence-medium">Mixed Evidence</span></h3>
+                    <ul>
+                        <li><strong>Gibson (2015)</strong> - meta-analysis. People in ketosis were slightly less hungry despite losing weight; the authors call the changes small and frame the benefit as hunger not rising.</li>
+                        <li><strong>Al Khatib (2017)</strong> - meta-analysis, 11 studies, 172 people. Short sleep raised intake by about 385 kcal a day. Carbohydrate intake specifically did not rise.</li>
+                        <li><strong>Leidy (2015)</strong> - review. 1.2&ndash;1.6 g of protein per kg a day, about 25&ndash;30 g per meal, during weight loss.</li>
+                    </ul>
+
+                    <h3>Choices in this plan that are judgment, not evidence</h3>
+                    <ul>
+                        <li><strong>Drinks first.</strong> Sugary drinks are the largest single source of added sugar in US diets (24%, CDC), with sweetened coffee and tea another 11%. No trial has tested the order of the steps.</li>
+                        <li><strong>Carbs before fasting on the "both" path.</strong> It leans on the appetite finding above and is untested.</li>
+                        <li><strong>Three rough days means repeat the week.</strong> The thresholds are a starting rule, not a clinical cut-off.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <!-- Overview Module -->
         <div class="module" id="overview">
             <div class="module-header">
@@ -1536,7 +2055,7 @@
                     </div>
                 </div>
                 
-                <div class="calculator">
+                <div class="calculator" id="symptomTracker">
                     <div class="tracker-header">
                         <div>
                             <h3>Symptom Tracker</h3>
@@ -1574,7 +2093,13 @@
                         <input type="range" id="appetiteLevel" min="1" max="10" value="5" oninput="updateSliderValue('appetite', this.value)">
                         <span id="appetiteValue">5</span>
                     </div>
-                    
+
+                    <div class="quiz-question">
+                        <strong>Carb Cravings (1-10):</strong>
+                        <input type="range" id="cravingsLevel" min="1" max="10" value="5" oninput="updateSliderValue('cravings', this.value)">
+                        <span id="cravingsValue">5</span>
+                    </div>
+
                     <div class="quiz-question">
                         <strong>Current Symptoms:</strong>
                         <div class="quiz-options" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
@@ -1584,6 +2109,8 @@
                             <label><input type="checkbox" id="irritability"> Irritability</label>
                             <label><input type="checkbox" id="constipation"> Constipation</label>
                             <label><input type="checkbox" id="badbreath"> Bad breath</label>
+                            <label><input type="checkbox" id="cramps"> Muscle cramps</label>
+                            <label><input type="checkbox" id="dizziness"> Dizziness</label>
                         </div>
                     </div>
                     
@@ -1843,7 +2370,597 @@
         </div>
     </div>
 
-    <script>
+    <script id="plan-core">
+        // Pure transition-plan logic: no DOM, no storage, no clock. tests/ loads this block directly.
+        const PlanCore = (function () {
+            'use strict';
+
+            const DAY_MS = 24 * 60 * 60 * 1000;
+            const BASE_FAST_HOURS = 12;
+            const MIN_CARB_STEP_GRAMS = 10;
+            const PACES = {
+                gentle: { carbWeeks: 6, fastHoursPerWeek: 1 },
+                standard: { carbWeeks: 3, fastHoursPerWeek: 2 }
+            };
+            const PATHS = ['carbs', 'fasting', 'both'];
+            const LIMITS = { carbsMin: 20, carbsMax: 600, fastHoursMin: BASE_FAST_HOURS, fastHoursMax: 16, maxHolds: 26 };
+            const DEFAULT_PLAN = {
+                path: 'carbs',
+                pace: 'gentle',
+                startCarbs: 250,
+                targetCarbs: 50,
+                targetFastHours: 14,
+                lastMeal: '20:00'
+            };
+            const ROUGH_DAY = { energyAtMost: 3, cravingsAtLeast: 8, symptomsAtLeast: 3 };
+            const ROUGH_DAYS_TO_REPEAT_WEEK = 3;
+
+            // Ordered easiest-win first; each is one behaviour change that needs no gram counting.
+            const CARB_FOCI = [
+                {
+                    id: 'liquid-sugar',
+                    title: 'Stop drinking sugar',
+                    action: 'Soda, juice, sweet tea and sweetened coffee out. Water, sparkling water, unsweetened tea or coffee in.'
+                },
+                {
+                    id: 'breakfast',
+                    title: 'Protein-first breakfast',
+                    action: 'Swap cereal, toast or pastry for eggs, plain Greek yogurt, or last night\'s leftovers.'
+                },
+                {
+                    id: 'snacks',
+                    title: 'Swap the snack foods',
+                    action: 'Chips, cookies, candy and bars out. Nuts, cheese, olives, jerky or berries in.'
+                },
+                {
+                    id: 'one-starch-meal',
+                    title: 'Starch at one meal only',
+                    action: 'Pick the one meal that keeps bread, rice, pasta or potato. The other meals get vegetables in that slot.'
+                },
+                {
+                    id: 'half-starch',
+                    title: 'Halve the last starch',
+                    action: 'Half the portion at that one meal; fill the plate with a swap (cauliflower rice, zucchini, salad).'
+                },
+                {
+                    id: 'landing',
+                    title: 'Starch becomes the exception',
+                    action: 'Daily carbs now come from vegetables, berries, dairy and nuts. Starch is an occasional choice, not a default.'
+                }
+            ];
+
+            function fastFocus(hours, previousHours) {
+                if (hours <= BASE_FAST_HOURS) {
+                    return {
+                        id: `fast-${hours}`,
+                        title: `${hours} h overnight fast`,
+                        action: `The kitchen closes after your last meal. Nothing with calories until ${hours} h later.`
+                    };
+                }
+                return {
+                    id: `fast-${hours}`,
+                    title: `${hours} h fast, ${24 - hours} h eating window`,
+                    action: `Your first meal moves ${hours - previousHours} h later than last week. The last meal stays where it is.`
+                };
+            }
+
+            function formatDate(utcMs) {
+                return new Date(utcMs).toISOString().slice(0, 10);
+            }
+
+            // Calendar dates are handled as UTC midnights so day counts never shift with daylight saving.
+            function parseDate(dateString) {
+                const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateString);
+                if (!match) return NaN;
+                const utcMs = Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+                return formatDate(utcMs) === dateString ? utcMs : NaN;
+            }
+
+            function addDays(dateString, days) {
+                return formatDate(parseDate(dateString) + days * DAY_MS);
+            }
+
+            function daysBetween(fromDate, toDate) {
+                return Math.round((parseDate(toDate) - parseDate(fromDate)) / DAY_MS);
+            }
+
+            function localDateString(date) {
+                const pad = (value) => String(value).padStart(2, '0');
+                return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+            }
+
+            function weekStartDate(startDate, weekIndex) {
+                return addDays(startDate, weekIndex * 7);
+            }
+
+            function carbCeilings(startCarbs, targetCarbs, maxWeeks) {
+                const gap = startCarbs - targetCarbs;
+                if (gap <= 0) return [targetCarbs];
+                const weeks = Math.min(maxWeeks, Math.ceil(gap / MIN_CARB_STEP_GRAMS));
+                const ceilings = [];
+                for (let week = 1; week < weeks; week++) {
+                    const exact = startCarbs - (gap * week) / weeks;
+                    ceilings.push(Math.max(targetCarbs, Math.round(exact / 5) * 5));
+                }
+                ceilings.push(targetCarbs);
+                return ceilings;
+            }
+
+            function carbFociForWeek(weekIndex, weeks) {
+                const from = Math.floor((weekIndex * CARB_FOCI.length) / weeks);
+                const to = Math.floor(((weekIndex + 1) * CARB_FOCI.length) / weeks);
+                return CARB_FOCI.slice(from, to);
+            }
+
+            function fastLadder(targetHours, hoursPerWeek, includeBase) {
+                const ladder = includeBase ? [BASE_FAST_HOURS] : [];
+                for (let hours = BASE_FAST_HOURS + hoursPerWeek; hours < targetHours; hours += hoursPerWeek) {
+                    ladder.push(hours);
+                }
+                if (targetHours > BASE_FAST_HOURS) ladder.push(targetHours);
+                return ladder;
+            }
+
+            function isKnownPace(pace) {
+                return Object.prototype.hasOwnProperty.call(PACES, pace);
+            }
+
+            // One entry per planned change, before any repeated weeks are applied.
+            function baseSteps(plan) {
+                const pace = PACES[isKnownPace(plan.pace) ? plan.pace : DEFAULT_PLAN.pace];
+                const steps = [];
+
+                if (plan.path !== 'fasting') {
+                    const ceilings = carbCeilings(plan.startCarbs, plan.targetCarbs, pace.carbWeeks);
+                    const alreadyThere = plan.startCarbs <= plan.targetCarbs;
+                    ceilings.forEach((carbCeiling, weekIndex) => {
+                        steps.push({
+                            kind: 'carbs',
+                            carbCeiling,
+                            fastHours: plan.path === 'both' ? BASE_FAST_HOURS : null,
+                            foci: alreadyThere ? CARB_FOCI.slice(-1) : carbFociForWeek(weekIndex, ceilings.length)
+                        });
+                    });
+                }
+
+                if (plan.path !== 'carbs') {
+                    let previousHours = BASE_FAST_HOURS;
+                    fastLadder(plan.targetFastHours, pace.fastHoursPerWeek, plan.path === 'fasting').forEach((fastHours) => {
+                        steps.push({
+                            kind: 'fasting',
+                            carbCeiling: plan.path === 'both' ? plan.targetCarbs : null,
+                            fastHours,
+                            foci: [fastFocus(fastHours, previousHours)]
+                        });
+                        previousHours = fastHours;
+                    });
+                }
+
+                return steps;
+            }
+
+            // One entry per calendar week. plan.holds lists step indexes to repeat; each occurrence adds a week.
+            function buildSchedule(plan) {
+                const holds = plan.holds || [];
+                const schedule = [];
+                baseSteps(plan).forEach((step, stepIndex) => {
+                    const repeats = holds.filter((heldStep) => heldStep === stepIndex).length;
+                    for (let repeat = 0; repeat <= repeats; repeat++) {
+                        schedule.push({ ...step, step: stepIndex, repeat });
+                    }
+                });
+                return schedule;
+            }
+
+            function holdWeek(plan, weekIndex) {
+                const week = buildSchedule(plan)[weekIndex];
+                if (!week) return plan;
+                return { ...plan, holds: [...(plan.holds || []), week.step] };
+            }
+
+            function undoHold(plan) {
+                return { ...plan, holds: (plan.holds || []).slice(0, -1) };
+            }
+
+            // Undo is only safe while still on the repeated step; later it would skip a step.
+            function canUndoHold(plan, weekIndex) {
+                const holds = plan.holds || [];
+                const week = buildSchedule(plan)[weekIndex];
+                return holds.length > 0 && Boolean(week) && week.step === holds[holds.length - 1];
+            }
+
+            function locateDay(startDate, totalWeeks, today) {
+                const elapsedDays = daysBetween(startDate, today);
+                if (elapsedDays < 0) {
+                    return { phase: 'before', daysUntilStart: -elapsedDays };
+                }
+                const dayNumber = elapsedDays + 1;
+                const planDays = totalWeeks * 7;
+                if (elapsedDays >= planDays) {
+                    return { phase: 'landed', dayNumber, daysSinceLanding: dayNumber - planDays, totalWeeks };
+                }
+                const dayInWeek = (elapsedDays % 7) + 1;
+                return {
+                    phase: 'active',
+                    dayNumber,
+                    weekIndex: Math.floor(elapsedDays / 7),
+                    dayInWeek,
+                    daysToNextStep: 8 - dayInWeek,
+                    totalWeeks
+                };
+            }
+
+            function clockToMinutes(clock) {
+                const [hours, minutes] = clock.split(':').map(Number);
+                return hours * 60 + minutes;
+            }
+
+            function minutesToClock(totalMinutes) {
+                const wrapped = ((totalMinutes % 1440) + 1440) % 1440;
+                const pad = (value) => String(value).padStart(2, '0');
+                return `${pad(Math.floor(wrapped / 60))}:${pad(wrapped % 60)}`;
+            }
+
+            // The last meal is the fixed anchor; a longer fast moves the first meal later.
+            function eatingWindow(lastMeal, fastHours) {
+                const eatHours = 24 - fastHours;
+                return {
+                    open: minutesToClock(clockToMinutes(lastMeal) - eatHours * 60),
+                    close: lastMeal,
+                    eatHours
+                };
+            }
+
+            function windowStatus(nowMinutes, lastMeal, fastHours) {
+                const eatMinutes = (24 - fastHours) * 60;
+                const openMinutes = clockToMinutes(lastMeal) - eatMinutes;
+                const sinceOpen = (((nowMinutes - openMinutes) % 1440) + 1440) % 1440;
+                return sinceOpen < eatMinutes
+                    ? { state: 'eating', minutesLeft: eatMinutes - sinceOpen }
+                    : { state: 'fasting', minutesLeft: 1440 - sinceOpen };
+            }
+
+            function formatDuration(totalMinutes) {
+                const hours = Math.floor(totalMinutes / 60);
+                const minutes = totalMinutes % 60;
+                if (hours === 0) return `${minutes} m`;
+                return minutes === 0 ? `${hours} h` : `${hours} h ${minutes} m`;
+            }
+
+            function isRoughDay(entry) {
+                return entry.energy <= ROUGH_DAY.energyAtMost
+                    || (entry.cravings || 0) >= ROUGH_DAY.cravingsAtLeast
+                    || (entry.symptoms || []).length >= ROUGH_DAY.symptomsAtLeast;
+            }
+
+            function summarizeWeek(entries, weekStart) {
+                const roughByDate = new Map();
+                entries.forEach((entry) => {
+                    const dayOffset = daysBetween(weekStart, entry.date);
+                    if (!(dayOffset >= 0 && dayOffset < 7)) return;
+                    roughByDate.set(entry.date, Boolean(roughByDate.get(entry.date)) || isRoughDay(entry));
+                });
+                const rough = [...roughByDate.values()].filter(Boolean).length;
+                return { logged: roughByDate.size, rough, shouldRepeat: rough >= ROUGH_DAYS_TO_REPEAT_WEEK };
+            }
+
+            function clampWholeNumber(value, min, max, fallback) {
+                if (typeof value !== 'number' || !Number.isFinite(value)) return fallback;
+                return Math.min(max, Math.max(min, Math.round(value)));
+            }
+
+            // Returns a safe plan, or null when the input cannot be trusted as a plan at all.
+            function normalizePlan(raw) {
+                if (!raw || typeof raw !== 'object') return null;
+                if (!PATHS.includes(raw.path) || Number.isNaN(parseDate(raw.startDate))) return null;
+
+                const plan = {
+                    path: raw.path,
+                    pace: isKnownPace(raw.pace) ? raw.pace : DEFAULT_PLAN.pace,
+                    startDate: raw.startDate,
+                    startCarbs: clampWholeNumber(raw.startCarbs, LIMITS.carbsMin, LIMITS.carbsMax, DEFAULT_PLAN.startCarbs),
+                    targetCarbs: clampWholeNumber(raw.targetCarbs, LIMITS.carbsMin, LIMITS.carbsMax, DEFAULT_PLAN.targetCarbs),
+                    targetFastHours: clampWholeNumber(raw.targetFastHours, LIMITS.fastHoursMin, LIMITS.fastHoursMax, DEFAULT_PLAN.targetFastHours),
+                    lastMeal: /^([01]\d|2[0-3]):[0-5]\d$/.test(raw.lastMeal) ? raw.lastMeal : DEFAULT_PLAN.lastMeal,
+                    holds: []
+                };
+                const stepCount = baseSteps(plan).length;
+                plan.holds = (Array.isArray(raw.holds) ? raw.holds : [])
+                    .filter((step) => Number.isInteger(step) && step >= 0 && step < stepCount)
+                    .slice(0, LIMITS.maxHolds);
+                return plan;
+            }
+
+            // Repeated weeks refer to step indexes, so they only survive an edit that leaves the steps as they were.
+            function carryHolds(previousPlan, nextPlan) {
+                if (!previousPlan) return nextPlan;
+                const sameSteps = ['path', 'pace', 'startCarbs', 'targetCarbs', 'targetFastHours']
+                    .every((setting) => previousPlan[setting] === nextPlan[setting]);
+                return { ...nextPlan, holds: sameSteps ? [...(previousPlan.holds || [])] : [] };
+            }
+
+            // Everything the Today card shows for one calendar date and time of day.
+            function todayModel(plan, today, nowMinutes, entries) {
+                const schedule = buildSchedule(plan);
+                const totalWeeks = schedule.length;
+                const location = locateDay(plan.startDate, totalWeeks, today);
+
+                const mealWindowFor = (week, withClock) => {
+                    if (week.fastHours === null) return null;
+                    const mealWindow = { ...eatingWindow(plan.lastMeal, week.fastHours), fastHours: week.fastHours };
+                    return withClock ? { ...mealWindow, ...windowStatus(nowMinutes, plan.lastMeal, week.fastHours) } : mealWindow;
+                };
+
+                if (location.phase === 'before') {
+                    return {
+                        phase: 'before',
+                        today,
+                        totalWeeks,
+                        daysUntilStart: location.daysUntilStart,
+                        startDate: plan.startDate,
+                        week: schedule[0],
+                        eatingWindow: mealWindowFor(schedule[0], false)
+                    };
+                }
+
+                if (location.phase === 'landed') {
+                    const finalWeek = schedule[totalWeeks - 1];
+                    return {
+                        phase: 'landed',
+                        today,
+                        totalWeeks,
+                        daysSinceLanding: location.daysSinceLanding,
+                        week: finalWeek,
+                        eatingWindow: mealWindowFor(finalWeek, true)
+                    };
+                }
+
+                const week = schedule[location.weekIndex];
+                const weekStart = weekStartDate(plan.startDate, location.weekIndex);
+                return {
+                    phase: 'active',
+                    today,
+                    totalWeeks,
+                    weekIndex: location.weekIndex,
+                    weekNumber: location.weekIndex + 1,
+                    dayNumber: location.dayNumber,
+                    daysToNextStep: location.daysToNextStep,
+                    week,
+                    nextWeek: schedule[location.weekIndex + 1] || null,
+                    nextStepDate: addDays(weekStart, 7),
+                    eatingWindow: mealWindowFor(week, true),
+                    log: summarizeWeek(entries, weekStart),
+                    loggedToday: entries.some((entry) => entry.date === today),
+                    canUndoHold: canUndoHold(plan, location.weekIndex)
+                };
+            }
+
+            return {
+                CARB_FOCI,
+                DEFAULT_PLAN,
+                LIMITS,
+                ROUGH_DAY,
+                ROUGH_DAYS_TO_REPEAT_WEEK,
+                buildSchedule,
+                holdWeek,
+                undoHold,
+                canUndoHold,
+                carryHolds,
+                locateDay,
+                weekStartDate,
+                addDays,
+                localDateString,
+                eatingWindow,
+                windowStatus,
+                formatDuration,
+                isRoughDay,
+                summarizeWeek,
+                normalizePlan,
+                todayModel
+            };
+        })();
+    </script>
+
+    <script id="plan-view">
+        // HTML builders for the transition plan. Pure strings in, strings out; the DOM glue lives in the main script.
+        const PlanView = (function () {
+            'use strict';
+
+            const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const ROUGH = PlanCore.ROUGH_DAY;
+            const DAILY_FLOOR_HTML = '<p class="plan-floor"><strong>Every day:</strong> water through the day &middot; protein at every meal (about 25&ndash;30 g) &middot; a full night\'s sleep</p>';
+
+            function formatDay(dateString) {
+                const date = new Date(`${dateString}T00:00:00Z`);
+                return `${WEEKDAYS[date.getUTCDay()]} ${MONTHS[date.getUTCMonth()]} ${date.getUTCDate()}`;
+            }
+
+            function plural(count, noun) {
+                return `${count} ${noun}${count === 1 ? '' : 's'}`;
+            }
+
+            function fociHtml(week) {
+                return week.foci
+                    .map((focus) => `<div class="plan-focus"><strong>${focus.title}</strong><span>${focus.action}</span></div>`)
+                    .join('');
+            }
+
+            function targetCell(label, value, note) {
+                return `<div><dt>${label}</dt><dd>${value}<small>${note}</small></dd></div>`;
+            }
+
+            function targetsHtml(week, mealWindow) {
+                const cells = [];
+                if (week.carbCeiling !== null) {
+                    cells.push(targetCell('Carb ceiling', `&le; ${week.carbCeiling} g`, 'net carbs a day; counting is optional'));
+                }
+                if (mealWindow) {
+                    cells.push(targetCell('Eating window', `${mealWindow.open}&ndash;${mealWindow.close}`, `${mealWindow.fastHours} h fast, ${mealWindow.eatHours} h to eat`));
+                }
+                if (mealWindow && mealWindow.state) {
+                    const duration = PlanCore.formatDuration(mealWindow.minutesLeft);
+                    cells.push(mealWindow.state === 'eating'
+                        ? targetCell('Right now', 'Window open', `closes in ${duration}`)
+                        : targetCell('Right now', 'Fasting', `opens in ${duration}`));
+                }
+                return cells.length ? `<dl class="plan-targets">${cells.join('')}</dl>` : '';
+            }
+
+            function weekSummary(week) {
+                const titles = week.foci.map((focus) => focus.title).join(' + ');
+                return week.kind === 'carbs' ? `&le; ${week.carbCeiling} g &middot; ${titles}` : titles;
+            }
+
+            function nextStepHtml(model) {
+                const when = `${formatDay(model.nextStepDate)} (in ${plural(model.daysToNextStep, 'day')})`;
+                if (!model.nextWeek) {
+                    return `<p class="plan-next"><strong>Next:</strong> ${when}, landing. You hold these targets from then on.</p>`;
+                }
+                if (model.nextWeek.repeat > 0) {
+                    return `<p class="plan-next"><strong>Next:</strong> ${when}, this week again. Same targets, no step down.</p>`;
+                }
+                return `<p class="plan-next"><strong>Next:</strong> ${when}, ${weekSummary(model.nextWeek)}</p>`;
+            }
+
+            function progressHtml(model) {
+                const segments = Array.from({ length: model.totalWeeks }, (_, index) => {
+                    const state = index < model.weekIndex ? ' plan-step-done' : index === model.weekIndex ? ' plan-step-current' : '';
+                    return `<span class="plan-step${state}"></span>`;
+                }).join('');
+                return `<div class="plan-steps" role="img" aria-label="Week ${model.weekNumber} of ${model.totalWeeks}">${segments}</div>`;
+            }
+
+            function ruleHtml(log) {
+                const definition = `A rough day is energy ${ROUGH.energyAtMost} or lower, cravings ${ROUGH.cravingsAtLeast} or higher, or ${ROUGH.symptomsAtLeast}+ symptoms in your log.`;
+                if (log.shouldRepeat) {
+                    return `<p class="plan-rule plan-rule-hit"><strong>${plural(log.rough, 'rough day')} logged this week.</strong> That is the signal to repeat this week before stepping down. ${definition}</p>`;
+                }
+                return `<p class="plan-rule"><strong>Rule:</strong> ${PlanCore.ROUGH_DAYS_TO_REPEAT_WEEK} or more rough days in a week means repeat the week instead of stepping down. A slip resets nothing: carry on at the next meal. ${definition}</p>`;
+            }
+
+            function emptyHtml() {
+                return `<div class="plan-today plan-today-empty">
+                    <p class="plan-kicker">No plan yet</p>
+                    <p class="plan-lead">Build one below: pick a path and a pace. Everything else has a default.</p>
+                </div>`;
+            }
+
+            function beforeHtml(model) {
+                return `<div class="plan-today">
+                    <p class="plan-kicker">Starts ${formatDay(model.startDate)} &middot; in ${plural(model.daysUntilStart, 'day')} &middot; ${plural(model.totalWeeks, 'week')} planned</p>
+                    <p class="plan-label">Before day 1</p>
+                    <ol class="plan-prep">
+                        <li>Read "Check before you start" below this card. If a line applies to you, talk to your clinician first.</li>
+                        <li>Log one ordinary day in the Symptom Tracker so you have a baseline to compare against.</li>
+                        <li>Shop for week 1 (below) so the swap is already in the house.</li>
+                    </ol>
+                    <p class="plan-label">Week 1 will be</p>
+                    ${fociHtml(model.week)}
+                    ${targetsHtml(model.week, model.eatingWindow)}
+                    <div class="plan-actions">
+                        <button class="plan-btn" onclick="goToSymptomLog()">Log a baseline day</button>
+                    </div>
+                </div>`;
+            }
+
+            function landedHtml(model) {
+                return `<div class="plan-today">
+                    <p class="plan-kicker">Landed &middot; ${plural(model.daysSinceLanding, 'day')} at your target</p>
+                    <p class="plan-label">Hold here</p>
+                    ${targetsHtml(model.week, model.eatingWindow)}
+                    ${DAILY_FLOOR_HTML}
+                    <p class="plan-rule">Hold these targets for a couple of weeks before changing anything else. To go further, set a lower target below and build a new plan from where you are now.</p>
+                    <div class="plan-actions">
+                        <button class="plan-btn" onclick="goToSymptomLog()">Log today</button>
+                    </div>
+                </div>`;
+            }
+
+            function activeHtml(model) {
+                const week = model.week;
+                const label = week.repeat > 0
+                    ? '<span class="plan-badge">Repeat week</span> Same change as last week'
+                    : week.foci.length === 1 ? 'This week\'s one change' : 'This week\'s changes';
+                const roughNote = model.log.rough > 0 ? ` &middot; ${plural(model.log.rough, 'rough day')}` : '';
+                const undoButton = model.canUndoHold
+                    ? '<button class="plan-btn plan-btn-secondary" onclick="undoPlanRepeat()">Undo repeat</button>'
+                    : '';
+
+                return `<div class="plan-today">
+                    <p class="plan-kicker">Today, ${formatDay(model.today)} &middot; Week ${model.weekNumber} of ${model.totalWeeks} &middot; Day ${model.dayNumber}</p>
+                    ${progressHtml(model)}
+                    <p class="plan-label">${label}</p>
+                    ${fociHtml(week)}
+                    ${targetsHtml(week, model.eatingWindow)}
+                    ${DAILY_FLOOR_HTML}
+                    <p class="plan-log">${model.log.logged} of 7 days logged this week${roughNote}. ${model.loggedToday ? 'Today is logged.' : 'Today is not logged yet.'}</p>
+                    ${ruleHtml(model.log)}
+                    <div class="plan-actions">
+                        <button class="plan-btn" onclick="goToSymptomLog()">Log today</button>
+                        <button class="plan-btn plan-btn-secondary" onclick="repeatPlanWeek()">Repeat this week</button>
+                        ${undoButton}
+                    </div>
+                    ${nextStepHtml(model)}
+                </div>`;
+            }
+
+            function todayHtml(model) {
+                if (!model) return emptyHtml();
+                if (model.phase === 'before') return beforeHtml(model);
+                if (model.phase === 'landed') return landedHtml(model);
+                return activeHtml(model);
+            }
+
+            function scheduleHtml(plan, today) {
+                const schedule = PlanCore.buildSchedule(plan);
+                const location = PlanCore.locateDay(plan.startDate, schedule.length, today);
+                const showCarbs = plan.path !== 'fasting';
+                const showFast = plan.path !== 'carbs';
+
+                const rowClass = (weekIndex) => {
+                    if (location.phase === 'landed') return ' class="done"';
+                    if (location.phase !== 'active') return '';
+                    if (weekIndex < location.weekIndex) return ' class="done"';
+                    return weekIndex === location.weekIndex ? ' class="current"' : '';
+                };
+
+                const rows = schedule.map((week, weekIndex) => `<tr${rowClass(weekIndex)}>
+                        <td>${weekIndex + 1}</td>
+                        <td class="nowrap">${formatDay(PlanCore.weekStartDate(plan.startDate, weekIndex))}</td>
+                        <td>${week.foci.map((focus) => focus.title).join(' + ')}${week.repeat > 0 ? ' (repeat)' : ''}</td>
+                        ${showCarbs ? `<td class="nowrap">&le; ${week.carbCeiling} g</td>` : ''}
+                        ${showFast ? `<td class="nowrap">${week.fastHours} h</td>` : ''}
+                    </tr>`).join('');
+
+                const landingColumns = 1 + (showCarbs ? 1 : 0) + (showFast ? 1 : 0);
+                return `<h3>Your schedule</h3>
+                    <div class="info-table-wrap">
+                        <table class="info-table">
+                            <thead><tr>
+                                <th>Week</th>
+                                <th>Starts</th>
+                                <th>Change</th>
+                                ${showCarbs ? '<th>Carb ceiling</th>' : ''}
+                                ${showFast ? '<th>Fast</th>' : ''}
+                            </tr></thead>
+                            <tbody>
+                                ${rows}
+                                <tr${location.phase === 'landed' ? ' class="current"' : ''}>
+                                    <td>Landing</td>
+                                    <td class="nowrap">${formatDay(PlanCore.weekStartDate(plan.startDate, schedule.length))}</td>
+                                    <td colspan="${landingColumns}">Hold the final targets</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>`;
+            }
+
+            return { formatDay, plural, todayHtml, scheduleHtml };
+        })();
+    </script>
+
+    <script id="app">
         // State management
         let appState = {
             bookmarks: [],
@@ -1851,8 +2968,11 @@
             userProfile: {},
             ketoneReadings: [],
             symptomEntries: [],
-            calculatorProfiles: []
+            calculatorProfiles: [],
+            transitionPlan: null
         };
+
+        const PLAN_CLOCK_REFRESH_MS = 60 * 1000;
 
         // Initialize app
         document.addEventListener('DOMContentLoaded', function() {
@@ -1862,6 +2982,7 @@
             initializeDarkMode();
             setupSystemThemeListener();
             migrateLegacyTheme();
+            setInterval(renderPlan, PLAN_CLOCK_REFRESH_MS);
         });
 
         // Dark mode functions
@@ -1976,19 +3097,26 @@
                         // Ensure arrays exist
                         ketoneReadings: parsed.ketoneReadings || [],
                         symptomEntries: parsed.symptomEntries || [],
-                        calculatorProfiles: parsed.calculatorProfiles || []
+                        calculatorProfiles: parsed.calculatorProfiles || [],
+                        transitionPlan: PlanCore.normalizePlan(parsed.transitionPlan)
                     };
                 } catch (e) {
                     console.log('Error loading saved state:', e);
                 }
             }
-            
+
             // Restore UI state
             updateBookmarksList();
             restoreDepthSettings();
+            fillPlanForm(appState.transitionPlan);
+            refreshTrackingViews();
+        }
+
+        function refreshTrackingViews() {
             updateKetoneHistory();
             updateSymptomHistory();
             updateDataManagementStatus();
+            renderPlan();
         }
 
         // New data management functions
@@ -2016,10 +3144,10 @@
                 appState.ketoneReadings = parsed.ketoneReadings || [];
                 appState.symptomEntries = parsed.symptomEntries || [];
                 appState.userProfile = parsed.userProfile || {};
-                
-                updateKetoneHistory();
-                updateSymptomHistory();
-                updateDataManagementStatus();
+                appState.transitionPlan = PlanCore.normalizePlan(parsed.transitionPlan);
+
+                fillPlanForm(appState.transitionPlan);
+                refreshTrackingViews();
                 showDataMessage('Data loaded successfully!', 'success');
             } catch (e) {
                 console.error('Failed to load data:', e);
@@ -2043,10 +3171,8 @@
             } catch (e) {
                 console.error('Failed to clear storage:', e);
             }
-            
-            updateKetoneHistory();
-            updateSymptomHistory();
-            updateDataManagementStatus();
+
+            refreshTrackingViews();
             showDataMessage('All tracking data cleared.', 'info');
         }
 
@@ -2055,6 +3181,7 @@
                 ketoneReadings: appState.ketoneReadings,
                 symptomEntries: appState.symptomEntries,
                 userProfile: appState.userProfile,
+                transitionPlan: appState.transitionPlan,
                 exportDate: new Date().toISOString(),
                 version: '1.0'
             };
@@ -2089,23 +3216,27 @@
                     // Confirm import
                     const ketoneCount = importedData.ketoneReadings?.length || 0;
                     const symptomCount = importedData.symptomEntries?.length || 0;
-                    
-                    if (!confirm(`Import ${ketoneCount} ketone readings and ${symptomCount} symptom entries? This will replace your current data.`)) {
+                    const hasPlan = 'transitionPlan' in importedData;
+                    const planNote = hasPlan ? ' and the transition plan in this file' : '';
+
+                    if (!confirm(`Import ${ketoneCount} ketone readings and ${symptomCount} symptom entries${planNote}? This will replace your current data.`)) {
                         return;
                     }
-                    
+
                     // Import data
                     appState.ketoneReadings = importedData.ketoneReadings || [];
                     appState.symptomEntries = importedData.symptomEntries || [];
                     if (importedData.userProfile) {
                         appState.userProfile = importedData.userProfile;
                     }
-                    
+                    if (hasPlan) {
+                        appState.transitionPlan = PlanCore.normalizePlan(importedData.transitionPlan);
+                    }
+
                     // Save and update UI
                     saveTrackingData();
-                    updateKetoneHistory();
-                    updateSymptomHistory();
-                    updateDataManagementStatus();
+                    fillPlanForm(appState.transitionPlan);
+                    refreshTrackingViews();
                     showDataMessage('Data imported successfully!', 'success');
                     
                 } catch (e) {
@@ -2127,7 +3258,8 @@
             const ketoneCount = appState.ketoneReadings.length;
             const symptomCount = appState.symptomEntries.length;
             const calculatorCount = appState.calculatorProfiles ? appState.calculatorProfiles.length : 0;
-            
+            const planWeeks = appState.transitionPlan ? PlanCore.buildSchedule(appState.transitionPlan).length : 0;
+
             const statusGrid = statusDiv.querySelector('.status-grid');
             if (statusGrid) {
                 statusGrid.innerHTML = `
@@ -2142,6 +3274,10 @@
                     <div class="status-item">
                         <strong>${calculatorCount}</strong>
                         <span>Calculator Saves</span>
+                    </div>
+                    <div class="status-item">
+                        <strong>${planWeeks}</strong>
+                        <span>Plan Weeks</span>
                     </div>
                 `;
             }
@@ -2164,8 +3300,8 @@
             }
         }
 
-        function showDataMessage(message, type) {
-            const messageDiv = document.getElementById('dataMessage');
+        function showDataMessage(message, type, targetId = 'dataMessage') {
+            const messageDiv = document.getElementById(targetId);
             if (!messageDiv) return;
             
             const colors = {
@@ -2265,8 +3401,121 @@
             appState.symptomEntries = [];
             updateSymptomHistory();
             updateDataManagementStatus();
+            renderPlan();
             saveState();
             showDataMessage('Symptom entries cleared.', 'info');
+        }
+
+        // Transition plan: thin DOM glue over PlanCore (logic) and PlanView (HTML).
+        const PLAN_FORM_FIELDS = {
+            path: 'planPath',
+            pace: 'planPace',
+            startDate: 'planStartDate',
+            startCarbs: 'planStartCarbs',
+            targetCarbs: 'planTargetCarbs',
+            targetFastHours: 'planTargetFast',
+            lastMeal: 'planLastMeal'
+        };
+        const PLAN_NUMBER_SETTINGS = ['startCarbs', 'targetCarbs', 'targetFastHours'];
+
+        function planNow() {
+            return new Date();
+        }
+
+        function planToday() {
+            return PlanCore.localDateString(planNow());
+        }
+
+        function readPlanForm() {
+            const raw = {};
+            Object.entries(PLAN_FORM_FIELDS).forEach(([setting, id]) => {
+                const value = document.getElementById(id).value;
+                raw[setting] = PLAN_NUMBER_SETTINGS.includes(setting) ? parseFloat(value) : value;
+            });
+            return raw;
+        }
+
+        function fillPlanForm(plan) {
+            const values = plan || { ...PlanCore.DEFAULT_PLAN, startDate: planToday() };
+            Object.entries(PLAN_FORM_FIELDS).forEach(([setting, id]) => {
+                document.getElementById(id).value = values[setting];
+            });
+            updatePlanFormVisibility();
+        }
+
+        function updatePlanFormVisibility() {
+            const path = document.getElementById('planPath').value;
+            document.getElementById('planCarbFields').style.display = path === 'fasting' ? 'none' : '';
+            document.getElementById('planFastFields').style.display = path === 'carbs' ? 'none' : '';
+        }
+
+        function planTodayModel() {
+            const plan = appState.transitionPlan;
+            if (!plan) return null;
+            const now = planNow();
+            const nowMinutes = now.getHours() * 60 + now.getMinutes();
+            return PlanCore.todayModel(plan, PlanCore.localDateString(now), nowMinutes, appState.symptomEntries);
+        }
+
+        // renderPlan runs every minute for the fasting clock; skipping unchanged HTML keeps keyboard focus in the card.
+        const renderedPlanHtml = {};
+
+        function setPlanHtml(id, html) {
+            if (renderedPlanHtml[id] === html) return;
+            renderedPlanHtml[id] = html;
+            document.getElementById(id).innerHTML = html;
+        }
+
+        function renderPlan() {
+            const plan = appState.transitionPlan;
+            setPlanHtml('planToday', PlanView.todayHtml(planTodayModel()));
+            setPlanHtml('planSchedule', plan ? PlanView.scheduleHtml(plan, planToday()) : '');
+        }
+
+        function setPlan(plan) {
+            appState.transitionPlan = plan;
+            fillPlanForm(plan);
+            renderPlan();
+            updateDataManagementStatus();
+            saveState();
+        }
+
+        function savePlanFromForm() {
+            const plan = PlanCore.normalizePlan(readPlanForm());
+            if (!plan) {
+                showDataMessage('Pick a start date to build your plan.', 'error', 'planMessage');
+                return;
+            }
+            setPlan(PlanCore.carryHolds(appState.transitionPlan, plan));
+            const weeks = PlanCore.buildSchedule(appState.transitionPlan).length;
+            const landing = PlanView.formatDay(PlanCore.weekStartDate(plan.startDate, weeks));
+            showDataMessage(`Plan built: ${PlanView.plural(weeks, 'week')}, landing ${landing}.`, 'success', 'planMessage');
+        }
+
+        function repeatPlanWeek() {
+            const model = planTodayModel();
+            if (!model || model.phase !== 'active') return;
+            setPlan(PlanCore.holdWeek(appState.transitionPlan, model.weekIndex));
+        }
+
+        function undoPlanRepeat() {
+            const model = planTodayModel();
+            if (!model || !model.canUndoHold) return;
+            setPlan(PlanCore.undoHold(appState.transitionPlan));
+        }
+
+        function clearPlan() {
+            if (!appState.transitionPlan) return;
+            if (!confirm('Clear your transition plan? Your symptom log is kept.')) {
+                return;
+            }
+            setPlan(null);
+            showDataMessage('Plan cleared.', 'info', 'planMessage');
+        }
+
+        function goToSymptomLog() {
+            document.getElementById('symptomDate').value = planToday();
+            document.getElementById('symptomTracker').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         // Calculator profile management
@@ -2427,6 +3676,7 @@
             }
             
             const moduleNames = {
+                start: '🧭 Start Here',
                 overview: '📋 Overview',
                 science: '🧬 Science',
                 safety: '⚠️ Safety',
@@ -2748,43 +3998,42 @@
             document.getElementById(type + 'Value').textContent = value;
         }
 
+        const SYMPTOM_CHECKBOX_IDS = ['headache', 'fatigue', 'nausea', 'irritability', 'constipation', 'badbreath', 'cramps', 'dizziness'];
+
         function addSymptomEntry() {
             const date = document.getElementById('symptomDate').value;
             const energy = document.getElementById('energyLevel').value;
             const clarity = document.getElementById('clarityLevel').value;
             const appetite = document.getElementById('appetiteLevel').value;
-            
+            const cravings = document.getElementById('cravingsLevel').value;
+
             if (!date) {
                 alert('Please select a date');
                 return;
             }
-            
-            const symptoms = [];
-            const checkboxes = ['headache', 'fatigue', 'nausea', 'irritability', 'constipation', 'badbreath'];
-            checkboxes.forEach(symptom => {
-                if (document.getElementById(symptom).checked) {
-                    symptoms.push(symptom);
-                }
-            });
-            
+
+            const symptoms = SYMPTOM_CHECKBOX_IDS.filter(symptom => document.getElementById(symptom).checked);
+
             const entry = {
                 date: date,
                 energy: parseInt(energy),
                 clarity: parseInt(clarity),
                 appetite: parseInt(appetite),
+                cravings: parseInt(cravings),
                 symptoms: symptoms,
                 timestamp: new Date(date).getTime()
             };
-            
+
             appState.symptomEntries.push(entry);
             appState.symptomEntries.sort((a, b) => b.timestamp - a.timestamp);
-            
+
             updateSymptomHistory();
             updateDataManagementStatus();
+            renderPlan();
             saveState(); // Auto-save after adding entry
-            
+
             // Reset form
-            checkboxes.forEach(symptom => {
+            SYMPTOM_CHECKBOX_IDS.forEach(symptom => {
                 document.getElementById(symptom).checked = false;
             });
         }
@@ -2804,10 +4053,11 @@
                 historyHTML += `
                     <div class="symptom-entry">
                         <div style="font-weight: 500; margin-bottom: 8px;">${entry.date}</div>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; font-size: 14px;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; font-size: 14px;">
                             <span>Energy: ${entry.energy}/10</span>
                             <span>Clarity: ${entry.clarity}/10</span>
                             <span>Appetite: ${entry.appetite}/10</span>
+                            ${Number.isInteger(entry.cravings) ? `<span>Cravings: ${entry.cravings}/10</span>` : ''}
                         </div>
                         ${entry.symptoms.length > 0 ? 
                             `<div style="margin-top: 8px; font-size: 14px;">
@@ -2877,14 +4127,14 @@
 
         // Set today's date as default for trackers
         document.addEventListener('DOMContentLoaded', function() {
-            const today = new Date().toISOString().split('T')[0];
+            const today = planToday();
             document.getElementById('ketoneDate').value = today;
             document.getElementById('symptomDate').value = today;
         });
 
         function initializeDepths() {
             // Set default depth for each module
-            const modules = ['overview', 'science', 'safety', 'implementation', 'evidence'];
+            const modules = ['start', 'overview', 'science', 'safety', 'implementation', 'evidence'];
             modules.forEach(module => {
                 if (!appState.currentDepth[module]) {
                     appState.currentDepth[module] = 'basic';
